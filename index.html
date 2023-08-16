@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GRIDA</title>
     <link rel="stylesheet" href="global.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
@@ -16,7 +16,14 @@
 		</div>
 
 		<!-- <button>Toggle Grid</button> -->
-		<button id="export-button">Export SVG</button>
+        <div class="controls-container">
+        <button id="clear-button" onClick="window.location.reload();">Clear Design</button>
+        <button id="export-button">Export SVG</button>
+        <label for="color">Color</label>
+        <input type="color" id="colorPicker" name="color">
+        <!-- <button onclick="setSelectedColor()">Set Selected Color</button> -->
+        </div>
+
 	</main>
 </body>
 

@@ -9,6 +9,8 @@ for (let i = 0; i < 100; i++) {
     gridContainer.appendChild(gridItem);
 }
 
+// let selectedColor = document.getElementById("colorPicker").value;
+
 // Initialize an array to store SVG data
 const svgDataArray = [];
 
@@ -21,32 +23,36 @@ function getGridPosition(square) {
     return { x: col * 50, y: row * 50 }; // Assuming 50px square size
 }
 
-// Function to create SVG data for a square with position information
-function createSvgData(position) {
-    // Create your SVG content here
-    // ...
 
-    // Include the position information as attributes or comments in the SVG data
-    return `
-    <svg x="${position.x}" y="${position.y}">
-    <!-- Your SVG content -->
-    <rect width="50" height="50" fill="blue"/>
-    </svg>
-    `;
-}
 
 // Function to fill a square with an SVG
 function fillSquare(event) {
+    var selectedColor = document.getElementById("colorPicker").value;
+    console.log(selectedColor);
+
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     svg.setAttribute('width', '100%');
     svg.setAttribute('height', '100%');
     rect.setAttribute('width', '100%');
     rect.setAttribute('height', '100%');
-    rect.setAttribute('fill', 'blue');
+    rect.setAttribute('fill', selectedColor);
     svg.appendChild(rect);
     event.target.innerHTML = ''; // Clear existing content
     event.target.appendChild(svg);
+
+    // Function to create SVG data for a square with position information
+    function createSvgData(position) {
+        // Create your SVG content here
+        // ...
+
+        // Include the position information as attributes or comments in the SVG data
+        return `
+        <svg x="${position.x}" y="${position.y}">
+        <rect width="50" height="50" fill="${selectedColor}"/>
+        </svg>
+        `;
+    }
 
     const squarePosition = getGridPosition(event.target);
     const svgData = createSvgData(squarePosition);
