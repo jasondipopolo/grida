@@ -33,3 +33,9 @@ p{
     font-size: medium;
     margin-bottom: 2rem;
 }
+text{
+    font-family: sans-serif;
+    fill:#bbb;
+}
+.rowNumbers{
+}

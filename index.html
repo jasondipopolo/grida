@@ -15,6 +15,9 @@
     svg {
       border: 1px solid black;
     }
+    #grid{
+        border: none;
+    }
     rect {
       stroke: black;
     }
@@ -36,6 +39,7 @@
         <input type="number" id="numCols" value="10">
         </div>
         <button id="generate-button">Generate Grid</button>
+        <button onClick="window.location.reload();">Clear Design</button>
         <button id="export-button">Export SVG</button>
     </div>
     <svg id="grid" width="400" height="400">
@@ -58,26 +62,48 @@
         const numCols = parseInt(numColsInput.value);
         const squareSize = 40;
 
-        grid.setAttribute('width', numCols * squareSize);
-        grid.setAttribute('height', numRows * squareSize);
+        grid.setAttribute('width', (numCols + 1) * squareSize);  // Increased by 1 for numbers
+        grid.setAttribute('height', (numRows + 1) * squareSize);  // Increased by 1 for numbers
+
 
         // Clear existing grid
         grid.innerHTML = '';
 
         // Generate the grid of SVG squares
-        for (let row = 0; row < numRows; row++) {
-            for (let col = 0; col < numCols; col++) {
-            const square = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-            square.setAttribute('x', col * squareSize);
-            square.setAttribute('y', row * squareSize);
-            square.setAttribute('width', squareSize);
-            square.setAttribute('height', squareSize);
-            square.setAttribute('fill', 'white');
-            square.addEventListener('click', handleSquareClick);
-            grid.appendChild(square);
-            }
-            }
-        }
+        // Generate numbers along the top
+  for (let col = 1; col <= numCols; col++) {
+    const number = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    number.setAttribute('x', col * squareSize + 11);
+    number.setAttribute('y', squareSize / 2);
+    number.setAttribute('text-anchor', 'auto');
+    number.setAttribute('dominant-baseline', 'auto');
+    number.textContent = col;
+    grid.appendChild(number);
+  }
+
+  // Generate numbers along the left
+  for (let row = 0; row < numRows; row++) {
+    const number = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    number.setAttribute('x', squareSize / 4);
+    number.setAttribute('y', (row + 1) * squareSize +25);  // Increased by 1 for numbers
+    number.setAttribute('text-anchor', 'auto');
+    number.setAttribute('dominant-baseline', 'auto');
+    number.setAttribute('class', 'rowNumbers');
+    number.textContent = row + 1;  // Increase by 1 for numbers
+    grid.appendChild(number);
+
+    for (let col = 0; col < numCols; col++) {
+      const square = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      square.setAttribute('x', (col + 1) * squareSize);  // Increased by 1 for numbers
+      square.setAttribute('y', (row + 1) * squareSize);  // Increased by 1 for numbers
+      square.setAttribute('width', squareSize);
+      square.setAttribute('height', squareSize);
+      square.setAttribute('fill', 'white');
+      square.addEventListener('click', handleSquareClick);
+      grid.appendChild(square);
+    }
+  }
+}
 
 
       // Function to handle square click
@@ -143,6 +169,8 @@
       // Attach click event listener to the Generate Grid button
       generateButton.addEventListener('click', generateGrid);
     });
+
+
   </script>
 </body>
 </html>
