@@ -1,32 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRIDA</title>
-    <link rel="stylesheet" href="global.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    svg {
+      border: 1px solid black;
+    }
+    rect {
+      stroke: black;
+    }
+  </style>
+  <title>SVG Grid Click Interaction</title>
 </head>
 <body>
-    <main>
-		<h1>Project Grida</h1>
-
-		<div class="grid-container">
-			<!-- Grid will be generated dynamically using JavaScript -->
-		</div>
-
-		<!-- <button>Toggle Grid</button> -->
-        <div class="controls-container">
-        <button id="clear-button" onClick="window.location.reload();">Clear Design</button>
-        <button id="export-button">Export SVG</button>
-        <label for="color">Color</label>
-        <input type="color" id="colorPicker" name="color">
-        <!-- <button onclick="setSelectedColor()">Set Selected Color</button> -->
+  <div id="app">
+    <h1>GRIDA</h1>
+    <p>Set your grid size, draw vector squares on the grid, change your color, and save your work.</p>
+    <div class="controls-container">
+        <input type="color" id="colorPicker" value="#000000">
+        <div>
+        <label for="numRows">Number of Rows:</label>
+        <input type="number" id="numRows" value="10">
         </div>
+        <div>
+        <label for="numCols">Number of Columns:</label>
+        <input type="number" id="numCols" value="10">
+        </div>
+        <button id="generate-button">Generate Grid</button>
+        <button id="export-button">Export SVG</button>
+    </div>
+    <svg id="grid" width="400" height="400">
+      <!-- Grid will be generated here -->
+    </svg>
+  </div>
 
-	</main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('grid');
+      const generateButton = document.getElementById('generate-button');
+      const exportButton = document.getElementById('export-button');
+      const numRowsInput = document.getElementById('numRows');
+      const numColsInput = document.getElementById('numCols');
+      const svgDataArray = [];
+      console.log(svgDataArray);
+
+      function generateGrid() {
+        const numRows = parseInt(numRowsInput.value);
+        const numCols = parseInt(numColsInput.value);
+        const squareSize = 40;
+
+        grid.setAttribute('width', numCols * squareSize);
+        grid.setAttribute('height', numRows * squareSize);
+
+        // Clear existing grid
+        grid.innerHTML = '';
+
+        // Generate the grid of SVG squares
+        for (let row = 0; row < numRows; row++) {
+            for (let col = 0; col < numCols; col++) {
+            const square = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            square.setAttribute('x', col * squareSize);
+            square.setAttribute('y', row * squareSize);
+            square.setAttribute('width', squareSize);
+            square.setAttribute('height', squareSize);
+            square.setAttribute('fill', 'white');
+            square.addEventListener('click', handleSquareClick);
+            grid.appendChild(square);
+            }
+            }
+        }
+
+
+      // Function to handle square click
+      function handleSquareClick(event) {
+  const square = event.target;
+  const newFill = colorPicker.value;
+  square.setAttribute('fill', newFill);
+
+  // Create SVG data for the clicked square
+  const svgData = `
+    <rect
+      x="${square.getAttribute('x')}"
+      y="${square.getAttribute('y')}"
+      width="${square.getAttribute('width')}"
+      height="${square.getAttribute('height')}"
+      fill="${newFill}"
+      stroke="black"
+    />
+  `;
+
+  // Push the SVG data into the array
+  svgDataArray.push(svgData);
+      console.log(svgDataArray);
+
+      }
+
+      // Export SVG functionality
+      exportButton.addEventListener('click', () => {
+        // Create an empty SVG element for combining SVG data
+        const combinedSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        combinedSVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); // Add XML namespace
+
+        // Loop through the collected SVG data and add them to the combined SVG
+        svgDataArray.forEach(svgData => {
+            const parser = new DOMParser();
+            const svgDoc = parser.parseFromString(svgData, 'image/svg+xml');
+            const svgElement = svgDoc.documentElement;
+            combinedSVG.appendChild(svgElement);
+
+            console.log(combinedSVG);
+        });
+
+
+        // Convert the combined SVG to a string
+        const combinedSVGString = new XMLSerializer().serializeToString(combinedSVG);
+
+        const svgContent = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="${grid.getAttribute('width')}" height="${grid.getAttribute('height')}" viewBox="0 0 ${grid.getAttribute('width')} ${grid.getAttribute('height')}">
+            ${svgDataArray.join('')}
+        </svg>
+        `;
+
+        // Create a Blob with the combined SVG data and make it downloadable
+        const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'exported-composition.svg';
+        link.click();
+        URL.revokeObjectURL(url);
+      });
+
+      // Attach click event listener to the Generate Grid button
+      generateButton.addEventListener('click', generateGrid);
+    });
+  </script>
 </body>
-
-<script type="text/JavaScript" src="script.js"></script>
-
 </html>
