@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0% 2%;
+  }
+  
+  #app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  #canvas {
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    /* text-align: center; */
+    font-family: "Unica One", sans-serif;
+    margin-bottom: -1rem;
+}
