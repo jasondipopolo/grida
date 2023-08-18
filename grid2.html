@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Divide Shapes</title>
+</head>
+<body>
+  <div id="app">
+    <button id="draw-rectangle">Draw Rectangle</button>
+    <svg id="canvas" width="800" height="600"></svg>
+  </div>
+
+  <style>
+    #canvas {
+      padding: 20px;
+      border: 5px solid black;
+      background: white;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const drawRectangleButton = document.getElementById('draw-rectangle');
+      const canvas = document.getElementById('canvas');
+      const svgNS = "http://www.w3.org/2000/svg";
+
+      let drawing = false;
+      let rect;
+      let initialX, initialY;
+
+      drawRectangleButton.addEventListener('click', () => {
+        drawing = true;
+        canvas.addEventListener('mousedown', startDrawing);
+      });
+
+      function startDrawing(event) {
+        initialX = event.clientX - canvas.getBoundingClientRect().left;
+        initialY = event.clientY - canvas.getBoundingClientRect().top;
+
+        rect = document.createElementNS(svgNS, 'rect');
+        rect.setAttribute('fill', 'transparent');
+        rect.setAttribute('stroke', 'black');
+        canvas.appendChild(rect);
+
+        canvas.removeEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', updateDrawing);
+        canvas.addEventListener('mouseup', stopDrawing);
+      }
+
+      function updateDrawing(event) {
+        if (drawing) {
+          const currentX = event.clientX - canvas.getBoundingClientRect().left;
+          const currentY = event.clientY - canvas.getBoundingClientRect().top;
+          const width = currentX - initialX;
+          const height = currentY - initialY;
+
+          rect.setAttribute('x', Math.min(initialX, currentX));
+          rect.setAttribute('y', Math.min(initialY, currentY));
+          rect.setAttribute('width', Math.abs(width));
+          rect.setAttribute('height', Math.abs(height));
+        }
+      }
+
+      function stopDrawing() {
+        if (drawing) {
+          drawing = false;
+
+          canvas.removeEventListener('mousemove', updateDrawing);
+          canvas.removeEventListener('mouseup', stopDrawing);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
