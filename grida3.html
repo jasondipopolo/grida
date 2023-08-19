@@ -11,9 +11,12 @@
     <p>Upload an SVG, select a color, apply your color, and begin drawing.</p>
     <p>Try our in-progress <a href="./index.html">Grid-Based Vector Drawing</a> tool or our <a href="./grid2.html">Divide Shape</a> tool (Both Desktop Only).</p>
   <div id="app">
-    <input type="file" id="svgFileInput">
-    <input type="color" id="colorPicker">
-    <button id="applyColorButton">Apply Color</button>
+    <div id="g3-controls-container">
+        <input type="file" id="svgFileInput">
+        <input type="color" id="colorPicker">
+        <button id="applyColorButton">Apply Color to All Cells</button>
+        <button id="exportSvgButton">Export Design</button>
+    </div>
     <div id="canvas">
       <!-- SVG content will be inserted here -->
     </div>
