@@ -8,11 +8,21 @@
 </head>
 <body>
     <h1>GRIDA</h1>
-    <p>Upload an SVG, select a color, apply your color, and begin drawing.</p>
-    <p>Try our in-progress <a href="./index.html">Grid-Based Vector Drawing</a> tool or our <a href="./grid2.html">Divide Shape</a> tool (Both Desktop Only).</p>
+    <!-- <p>Choose a preset grid or upload an SVG and start drawing.</p> -->
+        <div id="selector-container">
+            <label for="grid-selector">Choose a preset grid</label>
+                <select id="grid-selector" name="grid-selector">
+                    <option value="no-grid-selected">No Preset Selected</option>
+                    <option value="square-radial">Square Radial</option>
+                    <option value="square">Square</option>
+                    <option value="radial">Radial</option>
+                </select>
+        </div>
+        <p class="small-text">or upload your own SVG...</p>
+        <input type="file" id="svgFileInput">
   <div id="app">
     <div id="g3-controls-container">
-        <input type="file" id="svgFileInput">
+
         <input type="color" id="colorPicker">
         <button id="applyColorButton">Apply Color to All Cells</button>
         <button id="exportSvgButton">Export Design</button>
@@ -20,7 +30,13 @@
     <div id="canvas">
       <!-- SVG content will be inserted here -->
     </div>
+
+    <p>Create a square grid of any size to use with the <a href="./index.html">Square Grid Tool</a></p>
+
   </div>
+
+  <!-- <img src="WhiteFill-RadialSquare-Grid.svg"> -->
+
   <script src="script.js"></script>
 </body>
 </html>
