@@ -7,11 +7,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const applyColorButton = document.getElementById('applyColorButton');
     const canvas = document.getElementById('canvas');
     const app = document.getElementById('app');
+    const undoButton = document.getElementById('undoButton');
+    let isDragging = false;
+
+canvas.addEventListener('mousedown', handleMouseDown);
+canvas.addEventListener('mousemove', handleMouseMove);
+canvas.addEventListener('mouseup', handleMouseUp);
+// canvas.addEventListener('touchstart', handleTouchStart);
+// canvas.addEventListener('touchmove', handleTouchMove);
+// canvas.addEventListener('touchend', handleTouchEnd);
 
     function showSvgEditTools(){
         colorPicker.style.visibility = 'visible'
         applyColorButton.style.visibility = 'visible'
         exportSvgButton.style.visibility = 'visible'
+        undoButton.style.visibility = 'visible'
     }
     
 // Event Listener for File Input
@@ -41,8 +51,49 @@ document.addEventListener('DOMContentLoaded', () => {
         if (shape.style.fill = 'none' || shape.style.fill === 'none' ) {
             shape.style.fill = 'white';
           }          
-      });
+        });
+
+      // Applies listeners to hear for drag and draw by user
+        shapes.forEach((shape) => {
+            shape.addEventListener('mouseenter', handleShapeMouseEnter);
+            shape.addEventListener('mouseleave', handleShapeMouseLeave);
+        });
     }
+
+    
+    function handleMouseDown() {
+        isDragging = true;
+    }
+    function handleMouseUp() {
+        isDragging = false;
+    }
+    
+    
+
+    function handleShapeMouseEnter(event) {
+        if (isDragging) {
+            event.target.setAttribute('data-hovered', 'true');
+        }
+    }
+    function handleShapeMouseLeave(event) {
+        event.target.removeAttribute('data-hovered');
+    }
+    function handleMouseMove(event) {
+        if (isDragging) {
+            const selectedColor = colorPicker.value;
+            const hoveredShapes = canvas.querySelectorAll('[data-hovered="true"]');
+    
+            hoveredShapes.forEach((shape) => {
+                // Apply color change logic here
+                // For example, change the fill color of the shape
+                shape.style.fill = selectedColor;
+            });
+        }
+    }
+    
+    
+
+
   
 // Handles shape click
     function handleShapeClick(event) {

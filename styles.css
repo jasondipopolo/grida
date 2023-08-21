@@ -96,7 +96,7 @@ button:hover{
 #colorPicker, 
 
 
-#applyColorButton, #exportSvgButton, #colorPicker{
+#applyColorButton, #exportSvgButton, #colorPicker, #undoButton{
  visibility: hidden;
 }
 

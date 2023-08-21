@@ -14,8 +14,10 @@ h1 {
     line-height: 1;
     /* text-align: center; */
     font-family: "Unica One", sans-serif;
-    margin-bottom: -1rem;
 }
+h2{
+    font-family: "Roboto", sans-serif;
+  }
 .controls-container{
     display: flex;
     flex-wrap: wrap;
@@ -36,5 +38,35 @@ p{
 }
 text{
     font-family: sans-serif;
-    fill:#bbb;
+    fill:#888;
 }
+
+button{
+    font-family: "Roboto", sans-serif;
+    background-color: #FDFCDC;
+    padding: .5% 1rem;
+    border-radius: 4px;
+    border-style: none;
+    color:white;
+
+    background: #276678;
+}
+
+button:hover{
+    background: #264653;
+    cursor: pointer;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0% 1%;
+    background: #cac4ba;
+
+
+
+    color: black;
+  }
+  input{
+    max-width: 3rem;
+  }
