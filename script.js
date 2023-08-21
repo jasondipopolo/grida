@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 canvas.addEventListener('mousedown', handleMouseDown);
 canvas.addEventListener('mousemove', handleMouseMove);
-canvas.addEventListener('mouseup', handleMouseUp);
+document.body.addEventListener('mouseup', handleMouseUp);
 // canvas.addEventListener('touchstart', handleTouchStart);
 // canvas.addEventListener('touchmove', handleTouchMove);
 // canvas.addEventListener('touchend', handleTouchEnd);
