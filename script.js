@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.addEventListener('mousedown', handleMouseDown);
     canvas.addEventListener('mousemove', handleMouseMove);
     document.body.addEventListener('mouseup', handleMouseUp);
+    document.body.addEventListener('mouseleave', handleMouseLeave);
+
     canvas.addEventListener('touchstart', handleTouchStart);
     canvas.addEventListener('touchmove', handleTouchMove);
     document.body.addEventListener('touchend', handleTouchEnd);
@@ -79,6 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
         function handleMouseUp() {
             isDragging = false;
         }
+
+        function handleMouseLeave() {
+            isDragging = false;
+        }
+        
+
         function handleTouchStart() {
             isDragging = true;
         }
