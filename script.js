@@ -2,29 +2,70 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // Referencing Elements in the DOM
-        const svgFileInput = document.getElementById('svgFileInput');
-        const colorPicker = document.getElementById('colorPicker');
-        const applyColorButton = document.getElementById('applyColorButton');
-        const canvas = document.getElementById('canvas');
-        const app = document.getElementById('app');
-        const undoButton = document.getElementById('undoButton');
-        let isDragging = false;
-    
+    const svgFileInput = document.getElementById('svgFileInput');
+    const colorPicker = document.getElementById('colorPicker');
+    const applyColorButton = document.getElementById('applyColorButton');
+    const clearDesignButton = document.getElementById('applyColorButton');
+    const canvas = document.getElementById('canvas');
+    const app = document.getElementById('app');
+    const undoButton = document.getElementById('undoButton');
+    let isDragging = false;
+
+    // let canvasHistory = [];
+
+    // const initialCanvasState = canvas.innerHTML;
+    // canvasHistory.push(initialCanvasState);
+
+    // Inside functions that make changes to the canvas
+    // function updateCanvasState() {
+    //     const updatedCanvasState = canvas.innerHTML;
+    //     canvasHistory.push(updatedCanvasState);
+    // }
+
+    // undoButton.addEventListener('click', () => {
+    //     console.log('Undo Clicked');
+    //     isDragging = false; // Reset dragging state
+    //     if (canvasHistory.length > 1) {
+    //         canvasHistory.pop(); // Remove current state
+    //         const previousState = canvasHistory[canvasHistory.length - 1];
+    //         canvas.innerHTML = previousState; // Revert canvas to previous state
+    //     }
+    //     console.log(canvasHistory);
+    //     console.log(isDragging);
+    // });    
+
     canvas.addEventListener('mousedown', handleMouseDown);
     canvas.addEventListener('mousemove', handleMouseMove);
     document.body.addEventListener('mouseup', handleMouseUp);
     document.body.addEventListener('mouseleave', handleMouseLeave);
 
-    canvas.addEventListener('touchstart', handleTouchStart);
-    canvas.addEventListener('touchmove', handleTouchMove);
-    document.body.addEventListener('touchend', handleTouchEnd);
+    // canvas.addEventListener('touchstart', handleTouchStart);
+    // canvas.addEventListener('touchmove', handleTouchMove);
+    // document.body.addEventListener('touchend', handleTouchEnd);
+
+    const strokeWeightInput = document.getElementById('strokeWeightInput');
+    strokeWeightInput.addEventListener('input', liveChangeStrokeWeights);
     
-        function showSvgEditTools(){
-            colorPicker.style.visibility = 'visible'
-            applyColorButton.style.visibility = 'visible'
-            exportSvgButton.style.visibility = 'visible'
-            undoButton.style.visibility = 'visible'
+
+    function liveChangeStrokeWeights() {
+        const newStrokeWeight = parseFloat(strokeWeightInput.value);
+        if (!isNaN(newStrokeWeight)) {
+            const shapes = canvas.querySelectorAll('path, circle, rect'); // Add other SVG shapes as needed
+            shapes.forEach((shape) => {
+                shape.style.strokeWidth = newStrokeWeight;
+            });
         }
+    }
+    
+
+    function showSvgEditTools(){
+        colorPicker.style.visibility = 'visible'
+        applyColorButton.style.visibility = 'visible'
+        exportSvgButton.style.visibility = 'visible'
+        strokeWeightInput.style.visibility = 'visible'
+        // clearDesignButton.style.visibility = 'visible'
+        // undoButton.style.visibility = 'visible'
+    }
         
     // Event Listener for File Input
         svgFileInput.addEventListener('change', handleFileInput);
@@ -59,13 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
             shapes.forEach((shape) => {
                 shape.addEventListener('mouseenter', handleShapeMouseEnter);
                 shape.addEventListener('mouseleave', handleShapeMouseLeave);
-                shape.addEventListener('touchenter', handleShapeTouchEnter);
-                shape.addEventListener('touchleave', handleShapeTouchLeave);
+                // shape.addEventListener('touchenter', handleShapeTouchEnter);
+                // shape.addEventListener('touchleave', handleShapeTouchLeave);
             });
         }
     
         
         function handleMouseDown(event) {
+            // console.log('MouseDown');
             isDragging = true;
     
             // Apply color change logic to the clicked shape
@@ -77,22 +119,26 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 clickedShape.setAttribute('fill', selectedColor);
             }
+            // updateCanvasState(); // Save the current canvas state
         }
         function handleMouseUp() {
+            // console.log('MouseUp');
             isDragging = false;
+            
         }
 
         function handleMouseLeave() {
+            // console.log('MouseLeave');
             isDragging = false;
         }
         
 
-        function handleTouchStart() {
-            isDragging = true;
-        }
-        function handleTouchEnd() {
-            isDragging = false;
-        }
+        // function handleTouchStart() {
+        //     isDragging = true;
+        // }
+        // function handleTouchEnd() {
+        //     isDragging = false;
+        // }
         
         
     
@@ -118,26 +164,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         // handleTouchMove
-        function handleShapeTouchEnter(event) {
-            if (isDragging) {
-                event.target.setAttribute('data-hovered', 'true');
-            }
-        }
-        function handleShapeTouchLeave(event) {
-            event.target.removeAttribute('data-hovered');
-        }
-        function handleTouchMove(event) {
-            if (isDragging) {
-                const selectedColor = colorPicker.value;
-                const hoveredShapes = canvas.querySelectorAll('[data-hovered="true"]');
+        // function handleShapeTouchEnter(event) {
+        //     if (isDragging) {
+        //         event.target.setAttribute('data-hovered', 'true');
+        //     }
+        // }
+        // function handleShapeTouchLeave(event) {
+        //     event.target.removeAttribute('data-hovered');
+        // }
+        // function handleTouchMove(event) {
+        //     if (isDragging) {
+        //         const selectedColor = colorPicker.value;
+        //         const hoveredShapes = canvas.querySelectorAll('[data-hovered="true"]');
         
-                hoveredShapes.forEach((shape) => {
-                    // Apply color change logic here
-                    // For example, change the fill color of the shape
-                    shape.style.fill = selectedColor;
-                });
-            }
-        }
+        //         hoveredShapes.forEach((shape) => {
+        //             // Apply color change logic here
+        //             // For example, change the fill color of the shape
+        //             shape.style.fill = selectedColor;
+        //         });
+        //     }
+        // }
     
     
     
@@ -156,6 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
             shape.setAttribute('fill', selectedColor);
           }
+        //   updateCanvasState();
+        //   console.log(canvasHistory);
         }
     
     // Apply color button listener
@@ -170,6 +218,8 @@ document.addEventListener('DOMContentLoaded', () => {
               shape.setAttribute('fill', selectedColor);
             }
           });
+        //   updateCanvasState();
+        //   console.log(canvasHistory);
         });
     
     
@@ -212,6 +262,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'square-radial': 'https://gistcdn.githack.com/jasondipopolo/45a2247976364937cf3e21cc2528abf9/raw/46727c0f54a16f3e16353d4594eccd0f69231fa9/square-radial.svg',
                 'square': 'https://gistcdn.githack.com/jasondipopolo/38b6aab5cd34ed555e6d3816c76ba5a0/raw/1d7cc313bb8b26b29b689446541584d3d757631e/square.svg',
                 'radial': 'https://gistcdn.githack.com/jasondipopolo/2b1b0ae0acb89ed7259230fefe095e0f/raw/cfa3598a4f27fb90a3af036f95247f1bbeb97e36/radial.svg',
+                'shippo': 'https://gistcdn.githack.com/jasondipopolo/cfb789ac01bfef9267d3510a720dbf6f/raw/94a8e53968aeb5b5917fea8b6b5171dd11e707f5/shippo.svg',
+                'polar8': 'https://gistcdn.githack.com/jasondipopolo/490db15e4965fa8cd8690b57767d3e63/raw/444c51b59f0b62e3bee8fe80f974e2492e27654a/polar8.svg',
+                'isometric': 'https://gistcdn.githack.com/jasondipopolo/56ec07f9b9aa26fa44837cb7b92c48d6/raw/dd7a52a3b379eee8ab29899f99c197498c7a0290/isometric.svg',
                 // Add other options and URLs here
             };
             
@@ -225,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     canvas.innerHTML = svg;
                     showSvgEditTools()
                     addColorChangeListeners();
+                    // updateCanvasState();
                 });
         }
     
