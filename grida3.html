@@ -12,12 +12,13 @@
         <div id="selector-container">
             <label for="grid-selector">Choose a preset grid</label>
                 <select id="grid-selector" name="grid-selector">
-                    <option value="no-grid-selected">No Preset Selected</option>
-                    <option value="square-radial">Square Radial</option>
+                    <option value="square">No Preset Selected</option>
                     <option value="square">Square</option>
                     <option value="radial">Radial</option>
+                    <option value="square-radial">Square Radial</option>
                     <option value="polar8">Polar (8 Spokes)</option>
                     <option value="isometric">Isometric</option>
+                    <option value="3disometric-large">3D Isometric (Large)</option>
                     <option value="shippo">Shippō (Seven Treasures)</option>
                 </select>
         </div>
@@ -28,7 +29,10 @@
 
         <input type="color" id="colorPicker">
         <button id="applyColorButton">Apply Color to All Cells</button>
+        <!-- <label for="strokeWeightInput">Stroke Weight</label> -->
         <input type="number" id="strokeWeightInput" placeholder="Stroke Weight">
+        <!-- <label for="canvasSize">Canvas Size</label> -->
+        <input type="number" id="canvasWidthInput" placeholder="Canvas Size" min="400" max="3400" step="100" value="1000">
 
         <!-- <button id="undoButton">Undo</button> -->
         <!-- <button id="clearDesignButton" onClick="window.location.reload();">Clear Design</button> -->

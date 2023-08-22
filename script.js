@@ -34,6 +34,24 @@ document.addEventListener('DOMContentLoaded', () => {
     //     console.log(isDragging);
     // });    
 
+    const canvasWidthInput = document.getElementById('canvasWidthInput');
+    let timeoutId; // For storing the timeout ID
+
+    canvasWidthInput.addEventListener('input', () => {
+        clearTimeout(timeoutId); // Clear previous timeout
+        timeoutId = setTimeout(liveChangeCanvasWidth, 400); // Delay execution by 300 milliseconds
+    });
+    
+
+    function liveChangeCanvasWidth() {
+        const newCanvasWidth = parseFloat(canvasWidthInput.value);
+        if (!isNaN(newCanvasWidth)) {
+            canvas.style.maxWidth = newCanvasWidth + 'px';
+        }
+    }
+   
+    
+
     canvas.addEventListener('mousedown', handleMouseDown);
     canvas.addEventListener('mousemove', handleMouseMove);
     document.body.addEventListener('mouseup', handleMouseUp);
@@ -63,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         applyColorButton.style.visibility = 'visible'
         exportSvgButton.style.visibility = 'visible'
         strokeWeightInput.style.visibility = 'visible'
+        canvasWidthInput.style.visibility = 'visible'
         // clearDesignButton.style.visibility = 'visible'
         // undoButton.style.visibility = 'visible'
     }
@@ -265,6 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'shippo': 'https://gistcdn.githack.com/jasondipopolo/cfb789ac01bfef9267d3510a720dbf6f/raw/94a8e53968aeb5b5917fea8b6b5171dd11e707f5/shippo.svg',
                 'polar8': 'https://gistcdn.githack.com/jasondipopolo/490db15e4965fa8cd8690b57767d3e63/raw/444c51b59f0b62e3bee8fe80f974e2492e27654a/polar8.svg',
                 'isometric': 'https://gistcdn.githack.com/jasondipopolo/56ec07f9b9aa26fa44837cb7b92c48d6/raw/dd7a52a3b379eee8ab29899f99c197498c7a0290/isometric.svg',
+                '3disometric-large': 'https://gistcdn.githack.com/jasondipopolo/d539f4a8539cdbf1969285a30e4d84b6/raw/5a31f2c703d22133767cbdf8e259b93fe9952c44/3disometric-large.svg',
                 // Add other options and URLs here
             };
             

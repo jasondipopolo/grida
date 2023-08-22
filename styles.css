@@ -34,7 +34,7 @@ body {
   
   #canvas {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     border: 1px solid #ccc;
     margin-top: 20px;
   }
@@ -96,7 +96,7 @@ button:hover{
 #colorPicker, 
 
 
-#applyColorButton, #exportSvgButton, #colorPicker, #undoButton, #clearDesignButton, #strokeWeightInput{
+#applyColorButton, #exportSvgButton, #canvasWidthInput, #colorPicker, #undoButton, #clearDesignButton, #strokeWeightInput{
  visibility: hidden;
 }
 
@@ -125,7 +125,7 @@ a:visited{
 }
 
 #strokeWeightInput{
-    max-width: 7rem;
+    max-width: 6.5rem;
     padding: .5rem .2rem;
 }
 
