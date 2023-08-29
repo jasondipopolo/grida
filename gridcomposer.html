@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* height: 100vh; */
+      margin: 0;
+    }
+    svg {
+      border: 1px solid black;
+    }
+    #grid{
+        border: none;
+    }
+    rect {
+      stroke: black;
+    }
+    h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1;
+        /* text-align: center; */
+        font-family: "Unica One", sans-serif;
+    }
+    h2{
+        font-family: "Roboto", sans-serif;
+      }
+    .controls-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        max-width: 80%;
+    }
+    #grid{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10rem;
+    }
+    p{
+        font-family: sans-serif;
+        font-size: medium;
+        margin-bottom: 2rem;
+    }
+    text{
+        font-family: sans-serif;
+        fill:#888;
+    }
+
+    button{
+        font-family: "Roboto", sans-serif;
+        background-color: #FDFCDC;
+        padding: .5% 1rem;
+        border-radius: 4px;
+        border-style: none;
+        color:white;
+
+        background: #276678;
+    }
+
+    button:hover{
+        background: #264653;
+        cursor: pointer;
+    }
+
+    body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0% 1%;
+        background: #cac4ba;
+
+
+
+        color: black;
+      }
+      input{
+        max-width: 3rem;
+      }
+  </style>
+  <title>Grid Eyes: Grid Composer</title>
+</head>
+<body>
+  <div id="app">
+    <h1>GRID EYES</h1>
+    <h2>Grid Composer</h2>
+    <p>Set your grid size and generate your grid.</p>
+    <div class="controls-container">
+        <input type="color" id="colorPicker" value="#000000">
+        <div>
+        <label for="numRows">Height</label>
+        <input type="number" id="numRows" value="10">
+        </div>
+        <div>
+        <label for="numCols">Width</label>
+        <input type="number" id="numCols" value="10">
+        </div>
+        <button id="generate-button">Generate Grid</button>
+        <button onClick="window.location.reload();">Clear Design</button>
+        <button id="export-button">Export SVG</button>
+    </div>
+    <svg id="grid" width="600" height="600">
+      <!-- Grid will be generated here -->
+    </svg>
+    <p>Utilize your composed grid or other preset grids using <a href="./grida3.html">GridSight</a>.</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('grid');
+      const generateButton = document.getElementById('generate-button');
+      const exportButton = document.getElementById('export-button');
+      const numRowsInput = document.getElementById('numRows');
+      const numColsInput = document.getElementById('numCols');
+      const svgDataArray = [];
+      // console.log(svgDataArray);
+
+      function generateGrid() {
+        const numRows = parseInt(numRowsInput.value);
+        const numCols = parseInt(numColsInput.value);
+        const squareSize = 40;
+
+        grid.setAttribute('width', (numCols + 1) * squareSize);  // Increased by 1 for numbers
+        grid.setAttribute('height', (numRows + 1) * squareSize);  // Increased by 1 for numbers
+
+
+        // Clear existing grid
+        grid.innerHTML = '';
+
+        // Generate the grid of SVG squares
+        // Generate numbers along the top
+  for (let col = 1; col <= numCols; col++) {
+    const number = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    number.setAttribute('x', col * squareSize + 11);
+    number.setAttribute('y', squareSize / 2);
+    number.setAttribute('text-anchor', 'auto');
+    number.setAttribute('dominant-baseline', 'auto');
+    number.textContent = col;
+    grid.appendChild(number);
+  }
+
+  // Generate numbers along the left
+  for (let row = 0; row < numRows; row++) {
+    const number = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    number.setAttribute('x', squareSize / 4);
+    number.setAttribute('y', (row + 1) * squareSize +25);  // Increased by 1 for numbers
+    number.setAttribute('text-anchor', 'auto');
+    number.setAttribute('dominant-baseline', 'auto');
+    number.setAttribute('class', 'rowNumbers');
+    number.textContent = row + 1;  // Increase by 1 for numbers
+    grid.appendChild(number);
+
+    for (let col = 0; col < numCols; col++) {
+      const square = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      square.setAttribute('x', (col + 1) * squareSize);  // Increased by 1 for numbers
+      square.setAttribute('y', (row + 1) * squareSize);  // Increased by 1 for numbers
+      square.setAttribute('width', squareSize);
+      square.setAttribute('height', squareSize);
+      square.setAttribute('fill', 'white');
+      square.addEventListener('click', handleSquareClick);
+      grid.appendChild(square);
+    }
+  }
+}
+
+
+      // Function to handle square click
+      function handleSquareClick(event) {
+  const square = event.target;
+  const newFill = colorPicker.value;
+  square.setAttribute('fill', newFill);
+
+  // Create SVG data for the clicked square
+  const svgData = `
+    <rect
+      x="${square.getAttribute('x')}"
+      y="${square.getAttribute('y')}"
+      width="${square.getAttribute('width')}"
+      height="${square.getAttribute('height')}"
+      fill="${newFill}"
+      stroke="black"
+    />
+  `;
+
+  // Push the SVG data into the array
+  svgDataArray.push(svgData);
+      // console.log(svgDataArray);
+
+      }
+
+      // Export SVG functionality
+      exportButton.addEventListener('click', () => {
+        // Create an empty SVG element for combining SVG data
+        const combinedSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        combinedSVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); // Add XML namespace
+
+        // Loop through the collected SVG data and add them to the combined SVG
+        svgDataArray.forEach(svgData => {
+            const parser = new DOMParser();
+            const svgDoc = parser.parseFromString(svgData, 'image/svg+xml');
+            const svgElement = svgDoc.documentElement;
+            combinedSVG.appendChild(svgElement);
+
+            console.log(combinedSVG);
+        });
+
+
+        // Convert the combined SVG to a string
+        const combinedSVGString = new XMLSerializer().serializeToString(combinedSVG);
+
+        const svgContent = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="${grid.getAttribute('width')}" height="${grid.getAttribute('height')}" viewBox="0 0 ${grid.getAttribute('width')} ${grid.getAttribute('height')}">
+            ${svgDataArray.join('')}
+        </svg>
+        `;
+
+        // Create a Blob with the combined SVG data and make it downloadable
+        const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'exported-composition.svg';
+        link.click();
+        URL.revokeObjectURL(url);
+      });
+
+      // Attach click event listener to the Generate Grid button
+      generateButton.addEventListener('click', generateGrid);
+    });
+
+
+  </script>
+</body>
+</html>

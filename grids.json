@@ -1,0 +1,22 @@
+[
+{
+    "name":"Cartesian (Square)",
+    "aspectRatio":"1x1",
+    "genre":"grid",
+    "symmetry":true,
+    "svgSource":"",
+    "overlappingPosition":"Direct Overlap",
+    "cellSize":"Direct Overlap",
+    "useCases":["App Icon", "Cross-Stitching", "Map-Making", "Relaxation"] 
+},
+{
+    "name":"Cartesian (Square)",
+    "aspectRatio":"1x1",
+    "genre":"grid",
+    "symmetry":true,
+    "svgSource":"",
+    "overlappingPosition":"Direct Overlap",
+    "cellSize":"Direct Overlap",
+    "useCases":["App Icon", "Cross-Stitching", "Map-Making", "Relaxation"] 
+}
+]

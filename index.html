@@ -1,178 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="global.css">
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      /* height: 100vh; */
-      margin: 0;
-    }
-    svg {
-      border: 1px solid black;
-    }
-    #grid{
-        border: none;
-    }
-    rect {
-      stroke: black;
-    }
-  </style>
-  <title>GridSight</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Eyes: Grid-Based Design</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Script to get current year -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentYear = new Date().getFullYear();
+            const copyrightText = document.getElementById('copyright');
+            copyrightText.textContent = `© ${currentYear} Wooden Knight Labs. All rights reserved.`;
+        });
+    </script>
+
 </head>
 <body>
-  <div id="app">
-    <h1>GRIDSIGHT</h1>
-    <h2>Grid Composer</h2>
-    <p>Set your grid size and generate your grid.</p>
-    <div class="controls-container">
-        <input type="color" id="colorPicker" value="#000000">
-        <div>
-        <label for="numRows">Height</label>
-        <input type="number" id="numRows" value="10">
+    <nav>
+       <h1 id="logo">GRID EYES</h1>
+       <a href="#">Tips & Tricks</a>
+       <a href="#">Inspiration</a>
+    </nav>
+    <section id="hero-section">
+        <div id="hero-container">
+            <!-- <img id="hero-img" src="geometricPattern-unsplash-01.avif" alt="white and purple shapes forming a geometric pattern"> -->
+            <h1>CREATE PERFECT, GRID-BASED DESIGNS WITH EASE</h1>
+            <a href="./design.html"><div class="primary-btn">Start Designing</div></a>
+            <div class="secondary-btn">Sign up for our newsletter</div>
         </div>
-        <div>
-        <label for="numCols">Width</label>
-        <input type="number" id="numCols" value="10">
+    </section>
+    <section id="whyUs-section">
+        <h1>Other Designers Stepping Up Their Workflow</h1>
+        <div id="whyUs-container">
+            <!-- community posts -->
+            <div id="communityPosts-container">
+                <img id="communityPost1" src="woman-geometric-dress.png" alt="">
+                <img id="communityPost2" src="simple-geometric-pillow.png" alt="">
+                <img id="communityPost3" src="geometricPattern-unsplash-01.avif" alt="">
+                <img id="communityPost4" src="geometric_package_design.png" alt="">
+                <a id="communityPosts-link" href="#">View more from the community</a>
+            </div>
+            <!-- testimonials -->
+            <div id="testimonials-container">
+                <div class="testimonial">
+                    <img src="jessicaAdams-Avatar.png" alt="">
+                    <p><i>"As an aspiring game developer, I needed a tool to create hexagonal grids for my maps. This grid software turned out to be a blessing. With just a few clicks, I can customize the hexagon size and even add patterns to make my maps visually stunning. It's like having a dedicated grid designer at my fingertips!"</i><br><br><b>Jessica Adams, Game Developer</b></p>
+                </div>
+                <div class="testimonial">
+                    <img src="davidMartinez-avatar.png" alt="">
+                    <p><i>"Design is a language, and this software has given me a new dialect to express my ideas. It's like an artist's brush, allowing me to paint the canvas of my imagination with grids that resonate with the essence of my projects. It has truly transformed the way I bring my visions to life."</i><br><br><b>David Martinez, UX/UI Designer</b></p>
+                </div>
+                <div class="testimonial">
+                    <img src="emilyCarter-Avatar.png" alt="">
+                    <p><i>"I've always believed that the heart of design lies in the grid. This software has rekindled my passion by providing a canvas where my creative ideas can truly flourish. It doesn't just offer tools; it offers a playground of possibilities, empowering me to craft designs that speak volumes."</i><br><br><b>Emily Carter, Freelance Graphic Designer</b></p>
+                </div>
+                <a href="#">View more love for Grid Eyes</a>
+            </div>
         </div>
-        <button id="generate-button">Generate Grid</button>
-        <button onClick="window.location.reload();">Clear Design</button>
-        <button id="export-button">Export SVG</button>
-    </div>
-    <svg id="grid" width="600" height="600">
-      <!-- Grid will be generated here -->
-    </svg>
-    <p>Utilize your composed grid or other preset grids using <a href="./grida3.html">GridSight</a>.</p>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const grid = document.getElementById('grid');
-      const generateButton = document.getElementById('generate-button');
-      const exportButton = document.getElementById('export-button');
-      const numRowsInput = document.getElementById('numRows');
-      const numColsInput = document.getElementById('numCols');
-      const svgDataArray = [];
-      // console.log(svgDataArray);
-
-      function generateGrid() {
-        const numRows = parseInt(numRowsInput.value);
-        const numCols = parseInt(numColsInput.value);
-        const squareSize = 40;
-
-        grid.setAttribute('width', (numCols + 1) * squareSize);  // Increased by 1 for numbers
-        grid.setAttribute('height', (numRows + 1) * squareSize);  // Increased by 1 for numbers
-
-
-        // Clear existing grid
-        grid.innerHTML = '';
-
-        // Generate the grid of SVG squares
-        // Generate numbers along the top
-  for (let col = 1; col <= numCols; col++) {
-    const number = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    number.setAttribute('x', col * squareSize + 11);
-    number.setAttribute('y', squareSize / 2);
-    number.setAttribute('text-anchor', 'auto');
-    number.setAttribute('dominant-baseline', 'auto');
-    number.textContent = col;
-    grid.appendChild(number);
-  }
-
-  // Generate numbers along the left
-  for (let row = 0; row < numRows; row++) {
-    const number = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-    number.setAttribute('x', squareSize / 4);
-    number.setAttribute('y', (row + 1) * squareSize +25);  // Increased by 1 for numbers
-    number.setAttribute('text-anchor', 'auto');
-    number.setAttribute('dominant-baseline', 'auto');
-    number.setAttribute('class', 'rowNumbers');
-    number.textContent = row + 1;  // Increase by 1 for numbers
-    grid.appendChild(number);
-
-    for (let col = 0; col < numCols; col++) {
-      const square = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      square.setAttribute('x', (col + 1) * squareSize);  // Increased by 1 for numbers
-      square.setAttribute('y', (row + 1) * squareSize);  // Increased by 1 for numbers
-      square.setAttribute('width', squareSize);
-      square.setAttribute('height', squareSize);
-      square.setAttribute('fill', 'white');
-      square.addEventListener('click', handleSquareClick);
-      grid.appendChild(square);
-    }
-  }
-}
-
-
-      // Function to handle square click
-      function handleSquareClick(event) {
-  const square = event.target;
-  const newFill = colorPicker.value;
-  square.setAttribute('fill', newFill);
-
-  // Create SVG data for the clicked square
-  const svgData = `
-    <rect
-      x="${square.getAttribute('x')}"
-      y="${square.getAttribute('y')}"
-      width="${square.getAttribute('width')}"
-      height="${square.getAttribute('height')}"
-      fill="${newFill}"
-      stroke="black"
-    />
-  `;
-
-  // Push the SVG data into the array
-  svgDataArray.push(svgData);
-      // console.log(svgDataArray);
-
-      }
-
-      // Export SVG functionality
-      exportButton.addEventListener('click', () => {
-        // Create an empty SVG element for combining SVG data
-        const combinedSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        combinedSVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); // Add XML namespace
-
-        // Loop through the collected SVG data and add them to the combined SVG
-        svgDataArray.forEach(svgData => {
-            const parser = new DOMParser();
-            const svgDoc = parser.parseFromString(svgData, 'image/svg+xml');
-            const svgElement = svgDoc.documentElement;
-            combinedSVG.appendChild(svgElement);
-
-            console.log(combinedSVG);
-        });
-
-
-        // Convert the combined SVG to a string
-        const combinedSVGString = new XMLSerializer().serializeToString(combinedSVG);
-
-        const svgContent = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="${grid.getAttribute('width')}" height="${grid.getAttribute('height')}" viewBox="0 0 ${grid.getAttribute('width')} ${grid.getAttribute('height')}">
-            ${svgDataArray.join('')}
-        </svg>
-        `;
-
-        // Create a Blob with the combined SVG data and make it downloadable
-        const blob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'exported-composition.svg';
-        link.click();
-        URL.revokeObjectURL(url);
-      });
-
-      // Attach click event listener to the Generate Grid button
-      generateButton.addEventListener('click', generateGrid);
-    });
-
-
-  </script>
+    </section>
+    <section id="blog-section">
+        <h1>Guiding Your Grid Eyes Experience</h1>
+        <div id="blogposts-container">
+            <div id="blogpost1" class="blogpost">
+                <img src="manWithPins.png" alt="">
+                <h2>Taking Your Designs from Grid Eyes to Selling on Etsy with Zero Design Experience</h2>
+                <p>Christopher Mendez</p>
+            </div>
+            <div id="blogpost2" class="blogpost">
+                <img src="customFontCreation.png" alt="">
+                <h2>Creating Your Own Perfect Custom Fonts with Grid Eyes</h2>
+                <p>Christopher Mendez</p>
+            </div>
+            <div id="blogpost3" class="blogpost">
+                <img src="customFontIcon.png" alt="">
+                <h2>Create Your Own Custom UI Icons with Grid Eyes </h2>
+                <p>Christopher Mendez</p>
+            </div>
+            <div id="blogpost4" class="blogpost">
+                <img src="patternedBlanket.png" alt="">
+                <h2>Different Cultures and Their History of Patterns</h2>
+                <p>Analisa Devi</p>
+            </div>
+            <div id="blogpost5" class="blogpost">
+                <img src="rpgMapMaze.png" alt="">
+                <h2>How to Do RPG Map-Making on the Fly</h2>
+                <p>Analisa Devi</p>
+            </div>
+            <a href="#">Find more you can do with Grid Eyes in our Tips & Tricks series</a>
+        </div>
+    </section>
+    <section id="aboutUs-section">
+        <h1>Who Are We?</h1>
+        <div id="aboutUs-container">
+            <img src="" alt="">
+            <p>We are Wooden Knight Labs. A passionate team of creators dedicated to enhancing the world of design. Our software is the result of this dedication, crafted to empower designers like you. We believe in the seamless blend of creativity and structure, and our continuous pursuit of improvement ensures that your designs always shine. Join us in reshaping the landscape of design possibilities.</p>
+        </div>
+    </section>
+    <section id="footer">
+        <a href="#">Home</a>
+        <a href="#">Tips & Tricks</a>
+        <a href="#">Community Posts</a>
+        <a href="#">Testimonials</a>
+        <a href="#">About Us</a>
+        <p id="copyright">© Year Wooden Knight Labs. All rights reserved.</p>
+    </section>
 </body>
 </html>

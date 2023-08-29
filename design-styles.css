@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Unica+One&display=swap');
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0% 1%;
+    background: #cac4ba;
+
+
+
+    color: black;
+  }
+
+  label{
+    font-family: "Roboto", sans-serif;
+    margin-right: .3rem;
+  }
+
+  select{
+    font-family: "Roboto", sans-serif;
+  }
+
+#selector-container{
+    margin-bottom: .5rem;
+}
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+  }
+  
+  #canvas {
+    width: 100%;
+    max-width: 1000px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    /* text-align: center; */
+    font-family: "Unica One", sans-serif;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    color: black;
+    
+}
+
+#g3-controls-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: 1rem;
+    /* max-width: 80%; */
+}
+#canvas{
+    border: none;
+}
+
+input{
+    max-height: 2rem;
+}
+
+input::file-selector-button {
+    font-family: "Roboto", sans-serif;
+    /* font-weight: 700; */
+    color: black;
+    padding: 0.5em;
+    border: thin solid grey;
+    border-radius: 3px;
+  }
+
+input::file-selector-button:hover {
+    background-color: #aaa;
+}
+
+button{
+    font-family: "Roboto", sans-serif;
+    background-color: #FDFCDC;
+    padding: 2% 1rem;
+    border-radius: 4px;
+    border-style: none;
+    color:white;
+
+    background: #276678;
+}
+
+button:hover{
+    background: #264653;
+    cursor: pointer;
+}
+
+#colorPicker, 
+
+
+#applyColorButton, #exportSvgButton, #canvasWidthInput, #colorPicker, #undoButton, #clearDesignButton, #strokeWeightInput{
+ visibility: hidden;
+}
+
+#exportSvgButton{
+    margin-top: 1rem;
+    padding: .8rem;
+}
+
+a{
+    color: #2a9d8f;
+}
+
+a:hover{
+    color: #1f746a;
+}
+
+a:visited{
+    color: #708090;
+}
+
+.small-text{
+    font-size: 14px;
+    color: #555;
+    margin-bottom: .5rem;
+    margin-top:1.5rem;
+}
+
+#strokeWeightInput{
+    max-width: 6.5rem;
+    padding: .5rem .2rem;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 0% 3%;
+    }
+    #g3-controls-container{
+        margin-bottom: 0rem;
+    }
+  }
