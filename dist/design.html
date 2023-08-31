@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/design-styles.css">
+  <link rel="stylesheet" href="output.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Unica+One&display=swap');
+    #logo{
+        font-family: "Unica One", sans-serif;
+        font-size: 2.4rem;
+    }
+  </style>
+
+  <title>Grid Eyes: Grid-Based Design</title>
+</head>
+<body class="bg-white dark:bg-slate-900">
+
+<!-- NAV -->
+<header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
+  <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
+    <div class="flex items-center justify-between">
+      <a id="logo" class="flex-none text-base font-semibold dark:text-white" href="./index.html">GRID EYES</a>
+      <div class="sm:hidden">
+        <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
+          <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <svg class="hs-collapse-open:block hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
+      <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
+        <a class="font-medium text-blue-500" href="#">Home</a>
+        <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Tips & Tricks</a>
+        <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Inspiration</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- END OF NAV -->
+
+
+    <!-- <h1>GRID EYES</h1> -->
+    <!-- <p>Choose a preset grid or upload an SVG and start drawing.</p> -->
+        <div class="mt-10 flex items-center justify-center" id="selector-container">
+            <label class="text-black dark:text-white" for="grid-selector">Choose a preset grid</label>
+                <select id="grid-selector" name="grid-selector">
+                    <option value="square">No Preset Selected</option>
+                    <option value="square">Square</option>
+                    <option value="radial">Radial</option>
+                    <option value="square-radial">Square Radial</option>
+                    <option value="polar8">Polar (8 Spokes)</option>
+                    <option value="isometric">Isometric</option>
+                    <option value="3disometric-large">3D Isometric (Large)</option>
+                    <option value="shippo">Shippō (Seven Treasures)</option>
+                </select>
+        </div>
+        <div class="mt-8 mr-24 flex flex-col items-center justify-center">
+          <p class="mb-2 mr-28 text-black ml-10 dark:text-white">or upload your own SVG...</p>
+          <input class="ml-10 dark:text-white" type="file" id="svgFileInput">
+        </div>
+        <div id="app">
+    <div id="g3-controls-container">
+
+        <input type="color" id="colorPicker">
+        <button class="px-4 bg-slate-200 dark:bg-white text-black" id="applyColorButton">Apply Color to All Cells</button>
+        <!-- <label for="strokeWeightInput">Stroke Weight</label> -->
+        <input type="number" id="strokeWeightInput" placeholder="Stroke Weight">
+        <!-- <label for="canvasSize">Canvas Size</label> -->
+        <input type="number" id="canvasWidthInput" placeholder="Canvas Size" min="400" max="3400" step="100" value="1000">
+
+        <!-- <button id="undoButton">Undo</button> -->
+        <!-- <button id="clearDesignButton" onClick="window.location.reload();">Clear Design</button> -->
+    </div>
+    <div id="canvas">
+      <!-- SVG content will be inserted here -->
+    </div>
+    <button class="px-4 my-4 bg-slate-200 dark:bg-white text-black" id="exportSvgButton">Export Design</button>
+    <!-- <input type="checkbox" id="excludeWhiteShapesCheckbox"> -->
+    <!-- <label class="text-black dark:text-white" for="excludeWhiteShapesCheckbox">Exclude white shapes in export</label> -->
+
+
+
+    <p id="gridComposerPromo" class="mb-8 text-black dark:text-white">Want to create your own custom grid to upload? Check out our <a href="./gridcomposer.html">Grid Composer</a>.</p>
+
+  </div>
+
+  <!-- <img src="WhiteFill-RadialSquare-Grid.svg"> -->
+
+  <script src="../node_modules/preline/dist/preline.js"></script>
+  <script src="/design-script.js"></script>
+</body>
+</html>

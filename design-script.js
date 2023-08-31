@@ -245,24 +245,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Export SVG Button
     const exportSvgButton = document.getElementById('exportSvgButton');
     exportSvgButton.addEventListener('click', exportSvg);
-    const excludeWhiteShapes = document.getElementById('excludeWhiteShapesCheckbox').checked;
+    // const excludeWhiteShapes = document.getElementById('excludeWhiteShapesCheckbox').checked;
     
     function exportSvg() {
-        console.log(excludeWhiteShapes)
+        // console.log(excludeWhiteShapes)
         console.log("hello?")
 
         const svgContent = canvas.innerHTML;
 
-        if (excludeWhiteShapes) {
-            console.log("if statement triggered")
-            const parser = new DOMParser();
-            const svgDoc = parser.parseFromString(svgContent, 'image/svg+xml');
+        // if (excludeWhiteShapes) {
+        //     console.log("if statement triggered")
+        //     const parser = new DOMParser();
+        //     const svgDoc = parser.parseFromString(svgContent, 'image/svg+xml');
             
-            const whiteShapes = svgDoc.querySelectorAll('[fill="white"], [fill="#FFFFFF"], [style*="fill:white"], [style.fill="#FFFFFF"]');
-            whiteShapes.forEach(shape => shape.remove());
+        //     const whiteShapes = svgDoc.querySelectorAll('[fill="white"], [fill="#FFFFFF"], [style*="fill:white"], [style.fill="#FFFFFF"]');
+        //     whiteShapes.forEach(shape => shape.remove());
             
-            svgContent = svgDoc.documentElement.outerHTML;
-        }    
+        //     svgContent = svgDoc.documentElement.outerHTML;
+        // }    
 
         const blob = new Blob([svgContent], { type: 'image/svg+xml' });
         const url = URL.createObjectURL(blob);
