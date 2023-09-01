@@ -302,7 +302,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 'polar8': 'https://gistcdn.githack.com/jasondipopolo/490db15e4965fa8cd8690b57767d3e63/raw/444c51b59f0b62e3bee8fe80f974e2492e27654a/polar8.svg',
                 'isometric': 'https://gistcdn.githack.com/jasondipopolo/56ec07f9b9aa26fa44837cb7b92c48d6/raw/dd7a52a3b379eee8ab29899f99c197498c7a0290/isometric.svg',
                 '3disometric-large': 'https://gistcdn.githack.com/jasondipopolo/d539f4a8539cdbf1969285a30e4d84b6/raw/5a31f2c703d22133767cbdf8e259b93fe9952c44/3disometric-large.svg',
-                
+                'square-radial-4-corners': 'https://gistcdn.githack.com/jasondipopolo/3225be2c61ae3e3c7291837307131e44/raw/e21da1e5f920af88dcd47a6b6e75ec6374b7aceb/square-radial-4corners.svg',
+                'square-radial-2-corners-bottom': 'https://gistcdn.githack.com/jasondipopolo/7a905473107daba8244b3b8a2f510352/raw/466db60136e77588692a9cb80a0d36c46a664506/square-radial-2-corners-bottom.svg',
+                'square-radial-mirrored-halves': 'https://gistcdn.githack.com/jasondipopolo/c4d95729a08fca8ee3e5cf37a7b0a222/raw/119cb5c432a66d2937d86ddb97aed72cb00e1459/square-radial-mirrored-halves.svg',
+                'square-radial-stacked': 'https://gistcdn.githack.com/jasondipopolo/0558ac748e07e615765f0eeeaa809ef3/raw/d55c72fc12cace49f8b355c3086e06638e410442/square-radial-stacked.svg',
+                'square-radial-stacked-overlapping': 'https://gistcdn.githack.com/jasondipopolo/cbcca1b686f126dbad00de9e914028be/raw/bb2764b3c17a864921e0df1e8716c27c31e65cfb/square-radial-stacked-overlapping.svg',
+                'square-radial-top-half': 'https://gistcdn.githack.com/jasondipopolo/27ef60ec9471f95636e9fe1c29484473/raw/65ce3942df9ff1448860449ed1c252cd7f5b2649/square-radial-topHalf.svg',
+                'square-radial-bottom-half': 'https://gistcdn.githack.com/jasondipopolo/2fe998dec93f9d3a8ce1a23d0caf0248/raw/779f86dba18e596a3953f1415f6ad7a205a74908/square-radial-bottomHalf.svg'
                 // Add other options and URLs here
             };
             
