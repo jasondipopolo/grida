@@ -298,9 +298,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 'square': 'https://gistcdn.githack.com/jasondipopolo/38b6aab5cd34ed555e6d3816c76ba5a0/raw/1d7cc313bb8b26b29b689446541584d3d757631e/square.svg',
                 'radial': 'https://gistcdn.githack.com/jasondipopolo/2b1b0ae0acb89ed7259230fefe095e0f/raw/cfa3598a4f27fb90a3af036f95247f1bbeb97e36/radial.svg',
                 'shippo': 'https://gistcdn.githack.com/jasondipopolo/cfb789ac01bfef9267d3510a720dbf6f/raw/94a8e53968aeb5b5917fea8b6b5171dd11e707f5/shippo.svg',
+                'seigaiha': 'https://gistcdn.githack.com/jasondipopolo/aacef17ab29331812de99f70fc24adaf/raw/c5fe7a77908be01bee1dad47fe73737924d7eeec/seigaiha.svg',
                 'polar8': 'https://gistcdn.githack.com/jasondipopolo/490db15e4965fa8cd8690b57767d3e63/raw/444c51b59f0b62e3bee8fe80f974e2492e27654a/polar8.svg',
                 'isometric': 'https://gistcdn.githack.com/jasondipopolo/56ec07f9b9aa26fa44837cb7b92c48d6/raw/dd7a52a3b379eee8ab29899f99c197498c7a0290/isometric.svg',
                 '3disometric-large': 'https://gistcdn.githack.com/jasondipopolo/d539f4a8539cdbf1969285a30e4d84b6/raw/5a31f2c703d22133767cbdf8e259b93fe9952c44/3disometric-large.svg',
+                
                 // Add other options and URLs here
             };
             
