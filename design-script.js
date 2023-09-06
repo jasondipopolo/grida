@@ -294,21 +294,31 @@ document.addEventListener('DOMContentLoaded', () => {
         function getSvgUrlForOption(selectedOption) {
             // Define a mapping of options to corresponding SVG URLs
             const svgUrlMap = {
-                'square-radial': 'https://gistcdn.githack.com/jasondipopolo/45a2247976364937cf3e21cc2528abf9/raw/46727c0f54a16f3e16353d4594eccd0f69231fa9/square-radial.svg',
+                'square-radial': 'https://gistcdn.githack.com/jasondipopolo/fb731cdf1d20c6c1a3f7ba0f569dca31/raw/65dd7d71b6ce925eea547fa2ce4da37913736907/square-radial.svg',
                 'square': 'https://gistcdn.githack.com/jasondipopolo/38b6aab5cd34ed555e6d3816c76ba5a0/raw/1d7cc313bb8b26b29b689446541584d3d757631e/square.svg',
-                'radial': 'https://gistcdn.githack.com/jasondipopolo/2b1b0ae0acb89ed7259230fefe095e0f/raw/cfa3598a4f27fb90a3af036f95247f1bbeb97e36/radial.svg',
+                'radial': 'https://gistcdn.githack.com/jasondipopolo/8109e198271949e1a0f0f3ce023e836e/raw/44a0ccda777f5988e72a1433f479cd2335161c61/radial.svg',
                 'shippo': 'https://gistcdn.githack.com/jasondipopolo/cfb789ac01bfef9267d3510a720dbf6f/raw/94a8e53968aeb5b5917fea8b6b5171dd11e707f5/shippo.svg',
                 'seigaiha': 'https://gistcdn.githack.com/jasondipopolo/aacef17ab29331812de99f70fc24adaf/raw/c5fe7a77908be01bee1dad47fe73737924d7eeec/seigaiha.svg',
                 'polar8': 'https://gistcdn.githack.com/jasondipopolo/490db15e4965fa8cd8690b57767d3e63/raw/444c51b59f0b62e3bee8fe80f974e2492e27654a/polar8.svg',
                 'isometric': 'https://gistcdn.githack.com/jasondipopolo/56ec07f9b9aa26fa44837cb7b92c48d6/raw/dd7a52a3b379eee8ab29899f99c197498c7a0290/isometric.svg',
                 '3disometric-large': 'https://gistcdn.githack.com/jasondipopolo/d539f4a8539cdbf1969285a30e4d84b6/raw/5a31f2c703d22133767cbdf8e259b93fe9952c44/3disometric-large.svg',
-                'square-radial-4-corners': 'https://gistcdn.githack.com/jasondipopolo/3225be2c61ae3e3c7291837307131e44/raw/e21da1e5f920af88dcd47a6b6e75ec6374b7aceb/square-radial-4corners.svg',
-                'square-radial-2-corners-bottom': 'https://gistcdn.githack.com/jasondipopolo/7a905473107daba8244b3b8a2f510352/raw/466db60136e77588692a9cb80a0d36c46a664506/square-radial-2-corners-bottom.svg',
-                'square-radial-mirrored-halves': 'https://gistcdn.githack.com/jasondipopolo/c4d95729a08fca8ee3e5cf37a7b0a222/raw/119cb5c432a66d2937d86ddb97aed72cb00e1459/square-radial-mirrored-halves.svg',
-                'square-radial-stacked': 'https://gistcdn.githack.com/jasondipopolo/0558ac748e07e615765f0eeeaa809ef3/raw/d55c72fc12cace49f8b355c3086e06638e410442/square-radial-stacked.svg',
-                'square-radial-stacked-overlapping': 'https://gistcdn.githack.com/jasondipopolo/cbcca1b686f126dbad00de9e914028be/raw/bb2764b3c17a864921e0df1e8716c27c31e65cfb/square-radial-stacked-overlapping.svg',
-                'square-radial-top-half': 'https://gistcdn.githack.com/jasondipopolo/27ef60ec9471f95636e9fe1c29484473/raw/65ce3942df9ff1448860449ed1c252cd7f5b2649/square-radial-topHalf.svg',
-                'square-radial-bottom-half': 'https://gistcdn.githack.com/jasondipopolo/2fe998dec93f9d3a8ce1a23d0caf0248/raw/779f86dba18e596a3953f1415f6ad7a205a74908/square-radial-bottomHalf.svg'
+                'square-radial-4-corners': 'https://gistcdn.githack.com/jasondipopolo/0ab408858757192f292f8c30929c09b5/raw/b3bdae7bfea8d63ab26fbecd0b9d6b5a2aadeba6/square-radial-4corners.svg',
+                'square-radial-2-corners-bottom': 'https://gistcdn.githack.com/jasondipopolo/2c2b591d50277638c0f2935e141b374c/raw/c09ba2cb0056cac5b3b8d3a819709384a3ee717f/square-radial-2corners.svg',
+                'square-radial-mirrored-halves': 'https://gistcdn.githack.com/jasondipopolo/823428611660f81aa00825a300f8d015/raw/9c2a3c631c2aba2619fc4e15919c3b30be391f71/radial-halves-mirrored.svg',
+                'square-radial-stacked': 'https://gistcdn.githack.com/jasondipopolo/d5cbedad16400e8a55486bbb6d177115/raw/69831400867bf34f1b95ea0c08d982e050dd0950/square-radial-stacked.svg',
+                'square-radial-stacked-overlapping': 'https://gistcdn.githack.com/jasondipopolo/9353cfedf19839382625acc0b183928d/raw/a6a1ea97bd3affafde0fbaa9d2ea64c1def5adc4/square-radial-stacked-overlapping.svg',
+                'square-radial-top-half': 'https://gistcdn.githack.com/jasondipopolo/77fa5c644c4871668eb5f3af6315002b/raw/40850e6d80ff04fd057d56f69772085cf2d1300e/square-radial-top-half.svg',
+                'square-radial-bottom-half': 'https://gistcdn.githack.com/jasondipopolo/5391085876239a1f7c24400a520d0f2d/raw/15b8e6e787f20bd7eeb82e9c1d058f897acb2d10/square-radial-bottom-half.svg',
+                'square-radial-1-corner': 'https://gistcdn.githack.com/jasondipopolo/e166a57443d45b9f7ddf633118738d78/raw/8025e3e520a3bae83c234d866ffb1d8544c85563/square-radial-1corner.svg',
+                'logarithmic-horizontals-noVerticals': 'https://gistcdn.githack.com/jasondipopolo/34323dff46f54c2cbcda9b9b002a29c2/raw/0e22c5a5915c679c5fb23426873a57e500a43181/logarithmic-horizontals-noVerticals.svg',
+                'logarithmic-horizontals-nonLogVerticals': 'https://gistcdn.githack.com/jasondipopolo/f7dd50ef8582a5aa910f20407b63b69f/raw/ad0c782dd9f4b82e7c5e3ea84d73368b118de9a5/logarithmic-horizontals-nonLogVerticals.svg',
+                'logarithmic-horizontals-and-verticals': 'https://gistcdn.githack.com/jasondipopolo/a579b2fc0a83d0a4fe57ae2d686204e3/raw/499a6d64244cf47b784d94af7495f4b156609124/logarithmic-horizontals-and-verticals.svg',
+                'sphere-verticals': 'https://gistcdn.githack.com/jasondipopolo/15a09d9f124d569a5b6f586cc6fe5b1c/raw/54f3f7664d0730a8a28f848634ef80eae9d54165/sphere-verticals.svg',
+                'sphere-verticals-and-horizontals': 'https://gist.githubusercontent.com/jasondipopolo/3420cd1453526ac31851d614eac32a23/raw/6a02844d1d0214b6c78c4d4cdcf6aae21ef2826e/sphere-verticals-and-horizontals.svg',
+                'logarithmic-polar': 'https://gist.githubusercontent.com/jasondipopolo/c3012b6f47f4dc8bf2dc2b301eae4527/raw/ff11c4a6f0f5106a25a8232cf55062707701cd21/logarithmic-polar.svg',
+                'logarithmic-radial': 'https://gistcdn.githack.com/jasondipopolo/b675d66f9847b89c4a08604e4ed8de42/raw/02a5095fca12aac521724d34c227252458251961/logarithmic-radial.svg',
+                'logarithmic-polar-with-logSpokes': 'https://gistcdn.githack.com/jasondipopolo/ce678ee783d021b0d6894df6b7c15dd4/raw/944f51214227dc41a8bd5fb065b36a9895ced576/logarithmic-polar-logSpokes.svg',
+
                 // Add other options and URLs here
             };
             
