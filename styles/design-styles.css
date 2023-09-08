@@ -57,42 +57,8 @@
     border: none;
 }
 
-input{
-    max-height: 2rem;
-}
 
-input::file-selector-button {
-    font-family: "Roboto", sans-serif;
-    /* font-weight: 700; */
-    color: black;
-    padding: 0.5em;
-    border: thin solid grey;
-    border-radius: 3px;
-  }
-
-input::file-selector-button:hover {
-    background-color: #aaa;
-}
-
-button{
-    font-family: "Roboto", sans-serif;
-    background-color: #FDFCDC;
-    padding: 2% 1rem;
-    border-radius: 4px;
-    border-style: none;
-    color:white;
-    background: #276678;
-}
-
-button:hover{
-    background: #264653;
-    cursor: pointer;
-}
-
-#colorPicker, 
-
-
-#gridComposerPromo, #applyColorButton, #exportSvgButton, #canvasWidthInput, #colorPicker, #undoButton, #clearDesignButton, #strokeWeightInput{
+#gridComposerPromo, #applyColorToSameShapesButton, #applyColorButton, #applyStrokeColorButton, #exportSvgButton, #canvasWidthInput, #colorPicker, #undoButton, #clearDesignButton, #strokeWeightInput{
  visibility: hidden;
 }
 
