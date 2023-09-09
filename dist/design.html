@@ -50,12 +50,12 @@
     <!-- <h1>GRID EYES</h1> -->
     <div class="flex flex-col justify-center items-center">
       <div class="mt-5 p-8">
-        <h1 class="text-4xl text-black dark:text-white">SETUP YOUR GRID</h1>
+        <h1 class="text-4xl text-black dark:text-white">SET UP YOUR GRID</h1>
         <p class="mt-5 mb-2 text-black dark:text-white">Your grid-based design needs a grid. Choose a template to get started!</p>
         <!-- <p>Choose a preset grid or upload an SVG and start drawing.</p> -->
             <div class="" id="selector-container">
                 <label class="text-black dark:text-white" for="grid-selector">Choose a Grid Template</label>
-                    <select id="grid-selector" name="grid-selector" class="rounded-sm">
+                    <select id="grid-selector" name="grid-selector" class="rounded-sm border-solid border-2 drop-shadow-sm ">
                         <option value="square">No Preset Selected</option>
                         <option value="square">Square</option>
                         <option value="radial">Radial</option>
@@ -137,7 +137,7 @@
     <div id="g3-controls-container">
 
         <input type="color" id="colorPicker">
-        <button class="px-4 bg-slate-200 dark:bg-slate-50 text-black" id="applyColorToSameShapesButton">Apply Color to Same Shapes</button>
+        <button class="notActiveButton px-4 bg-slate-200 hover:bg-slate-300 dark:bg-slate-50 dark:hover:bg-slate-300 text-black" id="applyColorToSameShapesButton">Apply Color to Same Shapes</button>
         <button class="px-4 bg-slate-200 dark:bg-white text-black" id="applyStrokeColorButton">Apply Stroke Color to All Strokes</button>
         <button class="px-4 bg-slate-200 dark:bg-white text-black" id="applyColorButton">Apply Color to All Cells</button>
         <!-- <label for="strokeWeightInput">Stroke Weight</label> -->

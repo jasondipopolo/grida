@@ -91,6 +91,18 @@ a:visited{
     padding: .5rem .2rem;
 }
 
+.activeButton{
+    -webkit-box-shadow: inset 1px 1px 10px #333;
+    -moz-box-shadow:    inset 1px 1px 10px #333;
+    box-shadow:         inset 1px 1px 10px #333;
+}
+
+.notActiveButton{
+    -webkit-box-shadow: 0;
+    -moz-box-shadow:    0;
+    box-shadow:         0;
+}
+
 @media only screen and (max-width: 600px) {
     #app, #selector-container, #file-uploader {
         padding: 0% 3%;

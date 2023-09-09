@@ -266,8 +266,12 @@ document.addEventListener('DOMContentLoaded', () => {
           let isApplyColorToSameShapesButtonActive = false;
 
           applyColorToSameShapesButton.addEventListener('click', () => {
-            applyColorToSameShapesButton.classList.toggle("dark:bg-slate-50");
+            applyColorToSameShapesButton.classList.toggle("bg-slate-100"); 
+            applyColorToSameShapesButton.classList.toggle("bg-slate-400");
+            applyColorToSameShapesButton.classList.toggle("dark:bg-slate-50"); 
             applyColorToSameShapesButton.classList.toggle("dark:bg-slate-500");
+            applyColorToSameShapesButton.classList.toggle("notActiveButton");
+            applyColorToSameShapesButton.classList.toggle("activeButton");
 
             isApplyColorToSameShapesButtonActive = !isApplyColorToSameShapesButtonActive;
 
@@ -350,11 +354,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const gridSelector = document.getElementById('grid-selector');
         
         gridSelector.addEventListener('change', handleGridSelection);
-        
+
         function handleGridSelection() {
             const selectedOption = gridSelector.value;
             const svgUrl = getSvgUrlForOption(selectedOption);
-            
+
             fetchAndDisplaySvg(svgUrl);
         }
         
