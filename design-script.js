@@ -352,10 +352,18 @@ applyColorToSameShapesButton.addEventListener('click', () => {
 
                 // Get the "d" attribute value of the clicked shape
                 const clickedShapeD = shape.getAttribute("d");
+                const clickedShapeWidth = shape.getAttribute("width");
+                const clickedShapeHeight = shape.getAttribute("height");
 
-                // Loop through all shapes and set their fill if their "d" matches the clicked shape's "d"
+                // Loop through all shapes and set their fill based on the type of shape
                 svgShapes.forEach(function (otherShape) {
-                    if (otherShape.getAttribute("d") === clickedShapeD) {
+                    if (otherShape.tagName === "path" && otherShape.getAttribute("d") === clickedShapeD) {
+                        // For path elements, compare the "d" attribute
+                        otherShape.style.fill = fillColor;
+                    } else if ((otherShape.tagName === "rect" || otherShape.tagName === "circle") &&
+                            otherShape.getAttribute("width") === clickedShapeWidth &&
+                            otherShape.getAttribute("height") === clickedShapeHeight) {
+                        // For rect and circle elements, compare the "width" and "height" attributes
                         otherShape.style.fill = fillColor;
                     }
                 });
