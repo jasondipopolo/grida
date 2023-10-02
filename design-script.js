@@ -434,8 +434,8 @@ function getSvgUrlForOption(selectedOption) {
         'shippo': 'https://gistcdn.githack.com/grammarOfOrnament/cfb789ac01bfef9267d3510a720dbf6f/raw/94a8e53968aeb5b5917fea8b6b5171dd11e707f5/shippo.svg',
         'seigaiha': 'https://gistcdn.githack.com/grammarOfOrnament/aacef17ab29331812de99f70fc24adaf/raw/c5fe7a77908be01bee1dad47fe73737924d7eeec/seigaiha.svg',
         'polar8': 'https://gistcdn.githack.com/grammarOfOrnament/490db15e4965fa8cd8690b57767d3e63/raw/444c51b59f0b62e3bee8fe80f974e2492e27654a/polar8.svg',
-        'isometric': 'https://gistcdn.githack.com/grammarOfOrnament/56ec07f9b9aa26fa44837cb7b92c48d6/raw/dd7a52a3b379eee8ab29899f99c197498c7a0290/isometric.svg',
-        '3disometric-large': 'https://gistcdn.githack.com/grammarOfOrnament/d539f4a8539cdbf1969285a30e4d84b6/raw/5a31f2c703d22133767cbdf8e259b93fe9952c44/3disometric-large.svg',
+        'isometric': 'https://gistcdn.githack.com/grammarOfOrnament/452522efcfb8ec5e4d9bcef4e7a256b0/raw/cb0d36831b0749a9938bb3d1b0780e9f18989a2b/isometric-2.svg',
+        '3disometric': 'https://gistcdn.githack.com/grammarOfOrnament/28a6516cc3822eeed0220927d08e9c35/raw/6cb7eca6a4519df6bf13482891afede68005f96c/3d_isometric-2.svg',
         
         'square-radial-4-corners': 'https://gistcdn.githack.com/grammarOfOrnament/0ab408858757192f292f8c30929c09b5/raw/b3bdae7bfea8d63ab26fbecd0b9d6b5a2aadeba6/square-radial-4corners.svg',
         'square-radial-2-corners-bottom': 'https://gistcdn.githack.com/grammarOfOrnament/2c2b591d50277638c0f2935e141b374c/raw/c09ba2cb0056cac5b3b8d3a819709384a3ee717f/square-radial-2corners.svg',
@@ -449,9 +449,9 @@ function getSvgUrlForOption(selectedOption) {
         'logarithmic-horizontals-noVerticals': 'https://gistcdn.githack.com/grammarOfOrnament/3b06b886c1f8c3c120f8cc1ae601555d/raw/51af4c2635d858eae2c7f29967026917e7a7ecae/logarithmic-horizontals-noVerticals-2.svg',
         'logarithmic-horizontals-nonLogVerticals': 'https://gistcdn.githack.com/grammarOfOrnament/f7dd50ef8582a5aa910f20407b63b69f/raw/ad0c782dd9f4b82e7c5e3ea84d73368b118de9a5/logarithmic-horizontals-nonLogVerticals.svg',
         'logarithmic-horizontals-and-verticals': 'https://gistcdn.githack.com/grammarOfOrnament/a579b2fc0a83d0a4fe57ae2d686204e3/raw/499a6d64244cf47b784d94af7495f4b156609124/logarithmic-horizontals-and-verticals.svg',
-        'sphere-verticals': 'https://gistcdn.githack.com/grammarOfOrnament/15a09d9f124d569a5b6f586cc6fe5b1c/raw/54f3f7664d0730a8a28f848634ef80eae9d54165/sphere-verticals.svg',
+        'sphere-verticals': 'https://gistcdn.githack.com/grammarOfOrnament/edad4a08e8bf4838246b9c523209544e/raw/3f859b332b27497a572456d928a605888b020424/sphere-verticals-2.svg',
         'sphere-verticals-and-horizontals': 'https://gistcdn.githack.com/grammarOfOrnament/3420cd1453526ac31851d614eac32a23/raw/6a02844d1d0214b6c78c4d4cdcf6aae21ef2826e/sphere-verticals-and-horizontals.svg',
-        'logarithmic-polar': 'https://gistcdn.githack.com/grammarOfOrnament/c3012b6f47f4dc8bf2dc2b301eae4527/raw/ff11c4a6f0f5106a25a8232cf55062707701cd21/logarithmic-polar.svg',
+        'logarithmic-polar': 'https://gistcdn.githack.com/grammarOfOrnament/3b94f22a1bfe69613d556a159abf2cb5/raw/a9b5a528b607ecea304a39cefbdee07f58a69596/logarithmic-polar-2.svg',
         'logarithmic-radial': 'https://gistcdn.githack.com/grammarOfOrnament/b675d66f9847b89c4a08604e4ed8de42/raw/02a5095fca12aac521724d34c227252458251961/logarithmic-radial.svg',
         'logarithmic-polar-with-logSpokes': 'https://gistcdn.githack.com/grammarOfOrnament/ce678ee783d021b0d6894df6b7c15dd4/raw/944f51214227dc41a8bd5fb065b36a9895ced576/logarithmic-polar-logSpokes.svg',
 
