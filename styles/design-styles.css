@@ -103,6 +103,11 @@ a:visited{
     box-shadow:         0;
 }
 
+.gridIcon{
+ height: 2rem;
+ /* margin: 2rem; */
+}
+
 @media only screen and (max-width: 600px) {
     #app, #selector-container, #file-uploader {
         padding: 0% 3%;

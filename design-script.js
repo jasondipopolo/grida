@@ -246,11 +246,40 @@ function handleMouseMove(event) {
         const hoveredShapes = canvas.querySelectorAll('[data-hovered="true"]');
 
         hoveredShapes.forEach((shape) => {
-            // Apply color change logic here
-            // For example, change the fill color of the shape
             shape.style.fill = selectedColor;
         });
+        // if isApplyColorToSameShapesButtonActive...
+        // ...for each hovered shape, get the "d" attribute value if it is a path, get the "height" and "width" if it is a rect or circle
+        // for each other shape, if it is a path and has d value equaling the hovered shape's, apply user's fill Color to all other shapes
+        // for each other shape, if it is a rect or circle and has height and width value equaling the hovered shape's, apply user's fill Color to all other shapes
     }
+    if (isDragging && isApplyColorToSameShapesButtonActive) {
+        const selectedColor = colorPicker.value;
+        const hoveredShapes = canvas.querySelectorAll('[data-hovered="true"]');
+
+        if (hoveredShapes.length > 0) {
+            const clickedShape = hoveredShapes[0]; // Assuming we have only one hovered shape
+
+            const clickedShapeD = clickedShape.getAttribute("d");
+            const clickedShapeWidth = clickedShape.getAttribute("width");
+            const clickedShapeHeight = clickedShape.getAttribute("height");
+            
+            const svgShapes = document.querySelectorAll("path, rect, circle");
+            
+            svgShapes.forEach(function (otherShape) {
+                if (otherShape.tagName === "path" && otherShape.getAttribute("d") === clickedShapeD) {
+                    // For path elements, compare the "d" attribute
+                    otherShape.style.fill = selectedColor;
+                } else if ((otherShape.tagName === "rect" || otherShape.tagName === "circle") &&
+                    otherShape.getAttribute("width") === clickedShapeWidth &&
+                    otherShape.getAttribute("height") === clickedShapeHeight) {
+                    // For rect and circle elements, compare the "width" and "height" attributes
+                    otherShape.style.fill = selectedColor;
+                }
+            });
+        }
+    }
+
 }
     
 // handleTouchMove
@@ -317,6 +346,17 @@ applyStrokeColorButton.addEventListener('click', () => {
 
 // --------------------------------------------------------------------------------------------
 
+//pseudo
+// - Determine if SameShapes functionality is on of off (via making it a boolean)
+// - Listen for the button click that will toggle on/off SameShapes functionality
+// - Make SameShapes toggle-able so it has a on and off state
+
+// - Select all SVG Shapes and define them under the name svgShapes
+// - For each shape listen for a click
+// - If that shapes is clicked, ask if sameShapes is active. If so, get it's value that defines the shape (height, width, or d)
+// - Then for each other shape, if it is a path and has d value equaling the clicked shape's, apply user's fill Color
+// - If it is a rect or circle and has height and width value equaling the clicked shape's, apply user's fill Color
+
 // "Apply Color to Same Shapes" Button
 
 let isApplyColorToSameShapesButtonActive = false;
@@ -333,11 +373,7 @@ applyColorToSameShapesButton.addEventListener('click', () => {
     // Toggle on/off sameShapes button
     isApplyColorToSameShapesButtonActive = !isApplyColorToSameShapesButtonActive;
 
-    // if (isApplyColorToSameShapesButtonActive) {
-    //     console.log("It's active!")
-    // } else {
-    //     console.log("It's inactive!")
-    // }
+    
 
     // Add click event listeners to the SVG shapes
     const svgShapes = document.querySelectorAll("path, rect, circle"); // Adjust the selector as needed
@@ -369,6 +405,10 @@ applyColorToSameShapesButton.addEventListener('click', () => {
                 });
             }
         });
+        // - For each shape listen for a "mouseDown" (instead of click this time)
+        
+        // - if isApplyColorToSameShapesButtonActive
+
     });
 
 });
