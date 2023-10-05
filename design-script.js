@@ -195,6 +195,35 @@ function addColorChangeOnDragListeners() {
         // shape.addEventListener('touchleave', handleShapeTouchLeave);
     });
 }
+
+function applyColorToShapes(shapes, fillColor) {
+    shapes.forEach(function (shape) {
+        if (shape.hasAttribute('style')) {
+            const existingStyles = shape.getAttribute('style');
+            shape.setAttribute('style', existingStyles.replace(/fill:[^;]+;/, `fill:${fillColor};`));
+        } else {
+            shape.setAttribute('fill', fillColor);
+        }
+    });
+}
+
+
+function getShapesWithSameAttribute(clickedShape) {
+    const attributeToCompare = clickedShape.tagName === 'path' ? 'd' : 'width'; // Adjust as needed
+    const attributeValue = clickedShape.getAttribute(attributeToCompare);
+    const svgShapes = document.querySelectorAll("path, rect, circle"); // Adjust the selector as needed
+
+    return Array.from(svgShapes).filter((shape) => {
+        if (shape.tagName === 'path') {
+            return shape.getAttribute('d') === attributeValue;
+        } else if (shape.tagName === 'rect' || shape.tagName === 'circle') {
+            return shape.getAttribute('width') === clickedShape.getAttribute('width') &&
+                   shape.getAttribute('height') === clickedShape.getAttribute('height');
+        }
+        return false;
+    });
+}
+
         
 function handleMouseDown(event) {
     // console.log('MouseDown');
@@ -208,6 +237,11 @@ function handleMouseDown(event) {
         clickedShape.setAttribute('style', existingStyles.replace(/fill:[^;]+;/, `fill:${selectedColor};`));
     } else {
         clickedShape.setAttribute('fill', selectedColor);
+    }
+
+    if (isApplyColorToSameShapesButtonActive) {
+        const sameShapes = getShapesWithSameAttribute(clickedShape);
+        applyColorToShapes(sameShapes, selectedColor);
     }
 
     // updateCanvasState(); // Save the current canvas state
