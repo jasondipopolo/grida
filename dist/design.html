@@ -15,50 +15,97 @@
     }
   </style>
 
+<!-- Google Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Flowbite JS CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+
   <title>Grid Eyes: Grid-Based Design</title>
 </head>
 <body class="bg-white dark:bg-slate-900">
 
-<!-- NAV -->
-<header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
-  <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
-    <div class="flex items-center justify-between">
-      <a id="logo" class="flex-none text-base font-semibold dark:text-white" href="./index.html">GRID EYES</a>
-      <div class="sm:hidden">
-        <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
-          <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+  <!-- NAV -->
+  <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="/dist/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <svg class="fill-black dark:fill-white" width="8%" height="8%" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+          <g transform="matrix(1,0,0,1,-68.1234,-148.123)">
+              <g transform="matrix(1,0,0,1,70,150)">
+                  <path d="M31.877,0C31.877,-1.036 31.036,-1.877 30,-1.877L0,-1.877C-1.036,-1.877 -1.877,-1.036 -1.877,-0L-1.877,30C-1.877,31.036 -1.036,31.877 0,31.877L30,31.877C31.036,31.877 31.877,31.036 31.877,30L31.877,0ZM30,0L0,0L0,30L30,30L30,0Z"/>
+              </g>
+              <g transform="matrix(1.09091,0,0,1.09091,34.5455,115.091)">
+                  <path d="M46.25,32C53.839,32 60,38.161 60,45.75C60,53.339 53.839,59.5 46.25,59.5C38.661,59.5 32.5,53.339 32.5,45.75C32.5,38.161 38.661,32 46.25,32ZM46.25,33.72C52.889,33.72 58.28,39.111 58.28,45.75C58.28,52.389 52.889,57.78 46.25,57.78C39.611,57.78 34.22,52.389 34.22,45.75C34.22,39.111 39.611,33.72 46.25,33.72Z"/>
+              </g>
+              <g transform="matrix(0.690909,0,0,0.690909,53.0455,133.391)">
+                  <circle cx="46.25" cy="45.75" r="13.75" style="fill:none;stroke:black;stroke-width:2.72px;"/>
+              </g>
+              <g transform="matrix(0.363636,0,0,0.363636,68.1818,148.364)">
+                  <path d="M46.25,32C53.839,32 60,38.161 60,45.75C60,53.339 53.839,59.5 46.25,59.5C38.661,59.5 32.5,53.339 32.5,45.75C32.5,38.161 38.661,32 46.25,32ZM46.25,37.161C50.991,37.161 54.839,41.009 54.839,45.75C54.839,50.491 50.991,54.339 46.25,54.339C41.509,54.339 37.661,50.491 37.661,45.75C37.661,41.009 41.509,37.161 46.25,37.161Z"/>
+              </g>
+              <g transform="matrix(1,0,0,1.10714,40,115.179)">
+                  <path d="M40,31L40,59" style="fill:none;stroke:black;stroke-width:1.78px;"/>
+              </g>
+              <g transform="matrix(1,0,0,1.10714,50,115.179)">
+                  <path d="M40,31L40,59" style="fill:none;stroke:black;stroke-width:1.78px;"/>
+              </g>
+              <g transform="matrix(6.77929e-17,-1,1.10714,6.12323e-17,35.1786,210)">
+                  <path d="M40,31L40,59" style="fill:none;stroke:black;stroke-width:1.78px;"/>
+              </g>
+              <g transform="matrix(6.77929e-17,-1,1.10714,6.12323e-17,35.1786,200)">
+                  <path d="M40,31L40,59" style="fill:none;stroke:black;stroke-width:1.78px;"/>
+              </g>
+          </g>
+      </svg>
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Grid Eyes</span> <span class="bg-indigo-100 ml-2 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-indigo-700 dark:text-gray-300">BETA</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
           </svg>
-          <svg class="hs-collapse-open:block hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
-      <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
-        <a class="font-medium text-blue-500" href="#">Home</a>
-        <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Tips & Tricks</a>
-        <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Inspiration</a>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <!-- <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+        </ul> -->
       </div>
     </div>
   </nav>
-</header>
-<!-- END OF NAV -->
+    <!-- END OF NAV -->
 
 <!-- <p class="mt-5 mx-5 text-black dark:text-white">‹ Setup</p> -->
 
 <!-- <img src="../grid_icons/Isometric-grid_icon.svg" alt="" class="gridIcon"> -->
 
+<div class="w-full pl-36 pr-36">
     <!-- <h1>GRID EYES</h1> -->
-    <div class="flex flex-col justify-center items-center">
+    <div id="gridSetup" class="flex flex-col justify-center items-center w-6/12 mx-auto">
       <div class="mt-5 p-8">
-        <h1 class="text-4xl text-black dark:text-white">SET UP YOUR GRID</h1>
-        <p class="mt-5 mb-2 text-black dark:text-white">Your grid-based design needs a grid. Choose a template to get started!</p>
+        <h1 class="mb-8 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl dark:text-white">Design Setup</h1>
+        <!-- <p class="mt-5 mb-2 text-black dark:text-white">Your grid-based design needs a grid. Choose a template to get started!</p> -->
         <!-- <p>Choose a preset grid or upload an SVG and start drawing.</p> -->
             <div class="" id="selector-container">
-                <label class="text-black dark:text-white" for="grid-selector">Choose a Grid Template</label>
-                    <select id="grid-selector" name="grid-selector" class="rounded-sm border-solid border-2 drop-shadow-sm ">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="grid-selector">Choose a Grid Template</label>
+                    <select id="grid-selector" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="grid-selector" class="rounded-sm border-solid border-2 drop-shadow-sm ">
                         <option value="square">No Preset Selected</option>
                         <option value="square">Square</option>
                         <option value="radial">Radial</option>
@@ -118,12 +165,12 @@
             <!-- END OF ACCORDION -->
 
             <div id="file-uploader" class="">
-              <p class="mt-5 mb-2 text-black dark:text-white">OR</p>
-              <p class="mt-5 mb-2 text-black dark:text-white">Upload your own grid (.svg)</p>
+              <!-- <p class="mt-5 mb-2 text-black dark:text-white">OR</p>
+              <p class="mt-5 mb-2 text-black dark:text-white">Upload your own grid (.svg)</p> -->
               <!-- <input class="dark:text-white" type="file" id="svgFileInput" accept=".svg" required> -->
 
-              <form>
-                <label for="file-input" class="sr-only">Choose file</label>
+              <!-- <form>
+                <label for="file-input" class="sr-only">Upload Grid (SVG)</label>
                 <input type="file" name="file-input" id="svgFileInput" accept=".svg" required class="block w-full border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400
                   file:bg-transparent file:border-0
                   file:bg-gray-100 file:mr-4
@@ -131,36 +178,140 @@
                   dark:file:bg-gray-700 dark:file:text-gray-400
                   hover:file:cursor-pointer
                   hover:file:bg-gray-200 dark:hover:file:bg-gray-600">
+              </form> -->
+
+              <form>
+              <div class="flex items-center justify-center w-full">
+                <label for="svgFileInput" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                        <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                        </svg>
+                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload grid</span> (optional)</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">SVG</p>
+                    </div>
+                    <input type="file" name="file-input" id="svgFileInput" accept=".svg" required class="hidden" />
+                </label>
+              </div> 
               </form>
+
               
             </div>
       </div>
     </div>
-        <div id="app">
-    <div id="g3-controls-container">
 
-        <input type="color" id="colorPicker">
-        <button class="notActiveButton px-4 bg-slate-200 hover:bg-slate-300 dark:bg-slate-50 dark:hover:bg-slate-300 text-black" id="applyColorToSameShapesButton">Apply Color to Same Shapes</button>
-        <button class="px-4 bg-slate-200 dark:bg-white text-black" id="applyStrokeColorButton">Apply Stroke Color to All Strokes</button>
-        <button class="px-4 bg-slate-200 dark:bg-white text-black" id="applyColorButton">Apply Color to All Cells</button>
-        <!-- <label for="strokeWeightInput">Stroke Weight</label> -->
-        <input type="number" id="strokeWeightInput" placeholder="Stroke Weight">
-        <!-- <label for="canvasSize">Canvas Size</label> -->
-        <input type="number" id="canvasWidthInput" placeholder="Canvas Size" min="400" max="3400" step="100" value="1000">
+  </div>
 
-        <!-- <button id="undoButton">Undo</button> -->
-        <!-- <button id="clearDesignButton" onClick="window.location.reload();">Clear Design</button> -->
-    </div>
-    <div id="canvas">
+
+    <!-- App -->
+        <div id="app" class="flex flex-col items-center p-2 w-full mx-auto">
+
+          <!-- Return to Setup (Button) -->
+          <div class="flex justify-start items-center">
+            <button type="button" id="returnToSetupButton" class="py-3 px-4 mb-2 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-blue-500 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">
+              ‹ Return to Setup
+            </button>
+          </div>
+
+          <!-- Toolbar -->
+          <div id="g3-controls-container" class="flex flex-row flex-nowrap gap-1 bg-white border shadow-sm rounded-xl p-4 md:p-5 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7] dark:text-gray-400 mx-auto">
+
+            <input type="color" id="colorPicker" class="rounded-lg bg-transparent" data-tooltip-target="color-picker">
+            <div id="color-picker" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Color Picker
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <!-- <button class="notActiveButton px-4 bg-slate-200 hover:bg-slate-300 dark:bg-slate-50 dark:hover:bg-slate-300 text-black" id="applyColorToSameShapesButton">Apply Color to Same Shapes</button> -->
+            <button type="button" id="applyColorToSameShapesButton" class="py-3 px-4 rounded-md border font-medium bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-tooltip-target="same-shapes">
+              <span class="material-symbols-outlined">
+                hotel_class
+                </span>
+            </button>
+            <div id="same-shapes" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Apply Color to Same Shapes
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <!-- <button class="px-4 bg-slate-200 dark:bg-white text-black" id="applyStrokeColorButton">Apply Stroke Color to All Strokes</button> -->
+            <button type="button" id="applyStrokeColorButton" class="py-3 px-4 rounded-md border font-medium bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-tooltip-target="set-stroke-color">
+              <span class="material-symbols-outlined">
+                border_color
+                </span>
+            </button>
+            <div id="set-stroke-color" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Apply Stroke Color to All Strokes
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <!-- <button class="px-4 bg-slate-200 dark:bg-white text-black" >Apply Color to All Cells</button> -->
+            <button type="button" id="applyColorButton" class="py-3 px-4  rounded-md border font-medium bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-tooltip-target="apply-color-to-all">
+              <span class="material-symbols-outlined">
+                interests
+                </span>
+            </button>
+            <div id="apply-color-to-all" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Apply Color to All Shapes
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <!-- <label for="strokeWeightInput">Stroke Weight</label> -->
+            <!-- <input type="number"  placeholder="Stroke Weight"> -->
+            <input title="Stroke Weight" type="number" id="strokeWeightInput" class="py-2 px-3 block border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Stroke Weight" data-tooltip-target="stroke-weight">
+            <div id="stroke-weight" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Stroke Weight
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <input type="number" id="canvasWidthInput" class="py-2 px-3 block border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Canvas Size" min="400" max="3400" step="100" value="1000" data-tooltip-target="canvas-size">
+            <div id="canvas-size" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Zoom In/Out
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            
+            <!-- <label for="default-range" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Default range</label>
+            <input id="default-range" type="range" value="1000" min="400" max="3400" class="w-8 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" title="Canvas Size" type="number" id="canvasWidthInput" data-tooltip-target="canvas-size">
+            <div id="canvas-size" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Zoom In/Out
+              <div class="tooltip-arrow" data-popper-arrow></div> -->
+
+            <button title="Export Design" type="button" id="exportSvgButton" class="py-3 px-4 rounded-md border font-medium bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-tooltip-target="export">
+              <span class="material-symbols-outlined">
+                download
+                </span>
+            </button>
+            <div id="export" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Export
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+
+            <!-- <button title="Export Design" type="button" id="exportPngButton" class="py-3 px-4 rounded-md border font-medium bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-tooltip-target="export">
+              <span class="material-symbols-outlined">
+                download
+                </span>
+            </button>
+            <div id="export" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+              Export
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div> -->
+        
+      
+              <!-- <label for="canvasSize">Canvas Size</label> -->
+              <!-- <input type="number" id="canvasWidthInput" placeholder="Canvas Size" min="400" max="3400" step="100" value="1000"> -->
+
+              <!-- <button id="undoButton">Undo</button> -->
+              <!-- <button id="clearDesignButton" onClick="window.location.reload();">Clear Design</button> -->
+          </div>
+    <div id="canvas" class="mx-auto">
       <!-- SVG content will be inserted here -->
     </div>
-    <button class="px-4 my-4 bg-slate-200 dark:bg-white text-black" id="exportSvgButton">Export Design</button>
+    <!-- <button class="px-4 my-4 bg-slate-200 dark:bg-white text-black" id="exportSvgButton">Export Design</button> -->
+    
+    <div class="flex flex-wrap" id="colorPalette">
+      <!-- Color palette divs will be added here -->
+  </div>
+  
     <!-- <input type="checkbox" id="excludeWhiteShapesCheckbox"> -->
     <!-- <label class="text-black dark:text-white" for="excludeWhiteShapesCheckbox">Exclude white shapes in export</label> -->
 
 
 
-    <p id="gridComposerPromo" class="mb-8 text-black dark:text-white">Want to create your own custom grid to upload? Check out our <a href="./gridcomposer.html">Grid Composer</a>.</p>
+    <!-- <p id="gridComposerPromo" class="mb-8 text-black dark:text-white mx-auto max-w-lg">Want to create your own custom grid to upload? Check out our <a style="color: blue;" class="text-blue-700" href="./gridcomposer.html">Grid Composer</a>.</p> -->
 
   </div>
 
@@ -168,5 +319,9 @@
 
   <script src="./preline.js"></script>
   <script src="./design-script.js"></script>
+
+  <!-- Flowbite JS CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </body>
 </html>

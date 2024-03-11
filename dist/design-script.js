@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Referencing Elements in the DOM
 
+const drawingTool = document.getElementById('app');
+const returnToSetupButton = document.getElementById('returnToSetupButton');
+const gridSetupDiv = document.getElementById('gridSetup');
 const svgFileInput = document.getElementById('svgFileInput');
 const colorPicker = document.getElementById('colorPicker');
 const applyColorButton = document.getElementById('applyColorButton');
@@ -32,6 +35,7 @@ const applyColorToSameShapesButton = document.getElementById('applyColorToSameSh
 // const clearDesignButton = document.getElementById('applyColorButton');
 const canvas = document.getElementById('canvas');
 const app = document.getElementById('app');
+const toolbar = document.getElementById('g3-controls-container');
 // const undoButton = document.getElementById('undoButton');
 let isDragging = false;
 
@@ -103,15 +107,21 @@ function liveChangeStrokeWeights() {
 // Show hidden content upon grid selection
 
 function showSvgEditTools(){
-    colorPicker.style.visibility = 'visible'
-    applyColorButton.style.visibility = 'visible'
-    exportSvgButton.style.visibility = 'visible'
-    strokeWeightInput.style.visibility = 'visible'
-    canvasWidthInput.style.visibility = 'visible'
-    applyStrokeColorButton.style.visibility = 'visible'
-    applyColorToSameShapesButton.style.visibility = 'visible'
+    gridSetupDiv.style.display = 'none'
+    drawingTool.style.display = 'flex'
+    toolbar.style.display = 'flex'
+    returnToSetupButton.style.display = 'flex'
     // clearDesignButton.style.visibility = 'visible'
     // undoButton.style.visibility = 'visible'
+}
+
+returnToSetupButton.addEventListener('click', returnToSetup);
+
+function returnToSetup(){
+    gridSetupDiv.style.display = 'flex'
+    drawingTool.style.display = 'none'
+    toolbar.style.display = 'none'
+    returnToSetupButton.style.display = 'none'
 }
         
 // --------------------------------------------------------------------------------------------
@@ -147,7 +157,7 @@ function addColorChangeListeners() {
 
     //If fill is none, apply white because otherwise, shape is unclickable
     if (shape.style.fill = 'none' || shape.style.fill === 'none' ) {
-        shape.style.fill = 'white';
+        shape.style.fill = '#FFFFFF';
         }          
     });
 }
@@ -168,7 +178,76 @@ function handleShapeClick(event) {
     }
 //   updateCanvasState();
 //   console.log(canvasHistory);
+
+
+// Check if the selectedColor is not already in the canvasColors array and add it if not
+// if (!canvasColors.includes(selectedColor)) {
+//     canvasColors.push(selectedColor);
+
+//     // Call a function to update the color palette divs
+//     updateColorPalette();
+// }
+
 }
+
+// --------------------------------------------------------------------------------------------
+
+// Color Palette
+
+const canvasColors = new Set(); // Use a Set to store unique colors
+
+function updateCanvasColors() {
+  const shapes = canvas.querySelectorAll('path, circle, rect');
+
+  shapes.forEach((shape) => {
+    const fill = shape.getAttribute('fill') || shape.style.fill;
+
+    if (fill) {
+      canvasColors.add(fill); // Use Set's add method to handle uniqueness
+    }
+  });
+
+  updateColorPalette(colorPicker);
+
+  console.log('Canvas Colors:', [...canvasColors]); // Convert back to array for logging
+}
+
+function updateColorPalette() {
+  const colorPaletteContainer = document.getElementById('colorPalette');
+
+  // Clear the existing content of the container
+  colorPaletteContainer.innerHTML = '';
+
+  // Loop through the unique colors in the Set
+  canvasColors.forEach((color) => {
+    console.log("color created")
+    const colorDiv = document.createElement('div');
+        colorDiv.className = 'color-div'; // Apply a class if needed for styling
+        colorDiv.style.backgroundColor = color;
+        colorDiv.style.width = '40px';
+        colorDiv.style.height = '40px';
+        colorDiv.style.borderRadius = '50px';
+        colorDiv.style.cursor = 'pointer';
+        colorDiv.style.padding = '4px';
+
+        // Add a click event listener to the color div
+        colorDiv.addEventListener('click', () => {
+            colorPicker.value = color;
+        });
+
+        // Append the color div to the colorPaletteContainer
+        colorPaletteContainer.appendChild(colorDiv);
+        // document.body.appendChild(colorDiv);
+    });
+}
+
+// Call the updateCanvasColors function at a regular interval (e.g., every second)
+// setInterval(() => {
+//     updateCanvasColors();
+//     updateColorPalette();
+// }, 1000);
+// UNCOMMENT ABOVE TO SEE COLOR PALETTE IN ACTION
+
 
 // --------------------------------------------------------------------------------------------
 
@@ -481,6 +560,7 @@ function exportSvg() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
+
     
 // --------------------------------------------------------------------------------------------
 

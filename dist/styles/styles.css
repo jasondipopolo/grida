@@ -35,15 +35,15 @@ p{
     color: #1a1616;
 } */
 
-a{
+/* a{
     font-family: "Roboto", sans-serif;
     color: #805029;
     font-weight: 700;
     text-decoration: none;
-}
+} */
 
 a:hover{
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 /* nav{
@@ -285,10 +285,10 @@ max-height: 80%;
     padding: 2%;
 }
 
-#footer a{
+/* #footer a{
     color: #ecddbe;
 
-}
+} */
 
 #copyright{
     padding-bottom: 2rem;
